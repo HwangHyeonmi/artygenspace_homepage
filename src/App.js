@@ -1,5 +1,5 @@
-import logo from "./logo.svg";
 import "./App.css";
+import Container from "./Container";
 
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
           ★Artygen Space★
         </a>
       </header> */}
+      <Container></Container>
     </div>
   );
 }
