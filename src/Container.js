@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useRef, useState } from "react";
 import smoothscroll from "smoothscroll-polyfill";
 import ScrollTop from "react-scrolltop-button";
+import CommonSlider from "./CommonSlider";
 
 const Container = (props) => {
   const work = useRef();
@@ -16,12 +17,23 @@ const Container = (props) => {
     smoothscroll.polyfill();
 
     window.addEventListener("scroll", function () {
-      console.log(window.scrollY);
       if (window.scrollY > 1000) {
         header.current.style.backgroundColor = "#fff";
         /* header.current.style.boxShadow = " 5px 3px 5px 5px #ccc"; */
       } else {
         header.current.style.backgroundColor = "transparent";
+      }
+    });
+
+    window.addEventListener("scroll", function () {
+      if (window.innerWidth < 767) {
+        if (window.scrollY > 720) {
+          console.log("dd");
+          header.current.style.backgroundColor = "#fff";
+          /* header.current.style.boxShadow = " 5px 3px 5px 5px #ccc"; */
+        } else {
+          header.current.style.backgroundColor = "transparent";
+        }
       }
     });
   }, []);
@@ -58,7 +70,7 @@ const Container = (props) => {
     <div className="container" id="grid">
       <div className="headerWrap">
         <div className="header" ref={header}>
-          <div className="mainNav">
+          <div className="mainNav pcNav">
             <div
               onClick={function () {
                 moveToContentPosition();
@@ -81,10 +93,16 @@ const Container = (props) => {
               Contacts
             </div>
           </div>
+          <div class="hamburger">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+          </div>
           <div className="logo">
             <img src="img/logo.png"></img>
           </div>
         </div>
+        <div></div>
         <div className="main-slider">
           <div className="left">
             {/*  <h1>"We are all designers"</h1> */}
@@ -105,7 +123,7 @@ const Container = (props) => {
         </div>
       </div>
       <div className="body">
-        <div className="latest-work" ref={work}>
+        <div className="latest-work " ref={work}>
           <h2>Our Latest Work</h2>
           <p>
             From funded start-ups to large-scale enterprises,
@@ -113,7 +131,7 @@ const Container = (props) => {
             <br />
             who impact the world around us.
           </p>
-          <div className="content">
+          <div className="content latest-work-pc">
             <div className="con2">
               <img src="img/work_content1.png"></img>
               <h2>Interactive Book</h2>
@@ -136,6 +154,9 @@ const Container = (props) => {
             </div>
             {/* <div className="con4">dd</div> */}
           </div>
+          <div className="latest-work-mobile">
+            <CommonSlider></CommonSlider>
+          </div>
           <div
             className="moreBtn"
             ref={moreBtn}
@@ -149,7 +170,7 @@ const Container = (props) => {
           </div>
         </div>
 
-        <div className="specialize" ref={about}>
+        <div className="specialize specialize-pc" ref={about}>
           <div>
             <p>We specialized in</p>
             <h2>
@@ -171,10 +192,25 @@ const Container = (props) => {
             <img src="img/specialize_3 .png" />
           </div>
         </div>
-        <div className="slogan">
-          {/*  <h2>"We are all designers"</h2> */}
-          <div className="img">
-            <div>{/*    <img src="img/specialize_1.jpg" /> */}</div>
+        <div className="specialize-mobile" /* ref={about} */>
+          <div className="pic">
+            <img src="img/specialize_3 .png" />
+          </div>
+          <div>
+            <h2>
+              AR <span> educational entertainment </span>{" "}
+            </h2>
+            <p>
+              Augmented reality (AR) is an interactive experience of a
+              real-world environment. <br />
+              Based on Augmented Reality, We offer immersive and enjoyable
+              experience with a variety of learning tools like books
+            </p>
+            <div className="btn">
+              <span className="bar"></span>
+              <span className="bar"></span>
+              <span>left</span> | <span>next</span>
+            </div>
           </div>
         </div>
       </div>
@@ -197,15 +233,15 @@ const Container = (props) => {
         </div>
       </div>
       {/* <div className="copyright"></div> */}
-      <ScrollTop
+      {/*  <ScrollTop
         text="↑"
         distance={100}
         breakpoint={768}
-        /*   style={{ border: "1px solid #de211b" }} */
+          style={{ border: "1px solid #de211b" }}
         className="scroll-your-role"
         speed={1000}
         target={75}
-      />
+      /> */}
     </div>
   );
 };
