@@ -180,7 +180,7 @@ const Container = (props) => {
               Augmented reality (AR) is an interactive experience of a
               real-world environment. <br />
               Based on Augmented Reality, We offer immersive and enjoyable
-              experience with a variety of learning tools like books
+              experience with a variety of learning tools like books.
             </p>
             <div className="btn">
               <span className="bar"></span>
@@ -204,7 +204,7 @@ const Container = (props) => {
               Augmented reality (AR) is an interactive experience of a
               real-world environment. <br />
               Based on Augmented Reality, We offer immersive and enjoyable
-              experience with a variety of learning tools like books
+              experience with a variety of learning tools like books.
             </p>
             <div className="btn">
               <span className="bar"></span>

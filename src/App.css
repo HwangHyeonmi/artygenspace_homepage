@@ -217,7 +217,7 @@
 }
 
 .headerWrap {
-  background-image: url(img/main_slider0.png);
+  background-image: url(img/homepage_main.png);
   background-position: 0 20%;
   height: 90%;
   background-size: cover;
@@ -519,7 +519,7 @@
   box-sizing: border-box;
 }
 .contact .grid span {
-  font-size: 28px;
+  font-size: 24px;
   line-height: 50px;
 }
 .contact .grid a {
