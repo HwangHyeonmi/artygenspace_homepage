@@ -48,24 +48,13 @@ const Container = (props) => {
     console.log(moreBtnClickVal);
   }, [moreBtnClickVal]);
 
-  const moveToContentPosition = () => {
+  const moveToContentPosition = (work) => {
     let workPosition =
       window.pageYOffset + work.current.getBoundingClientRect().top - 100;
     console.log(workPosition);
     window.scrollTo({ top: workPosition, behavior: "smooth" });
   };
-  const moveToContentPosition2 = () => {
-    let workPosition =
-      window.pageYOffset + about.current.getBoundingClientRect().top - 110;
-    console.log(workPosition);
-    window.scrollTo({ top: workPosition, behavior: "smooth" });
-  };
-  const moveToContentPosition3 = () => {
-    let workPosition =
-      window.pageYOffset + contact.current.getBoundingClientRect().top;
-    console.log(workPosition);
-    window.scrollTo({ top: workPosition, behavior: "smooth" });
-  };
+
   return (
     <div className="container" id="grid">
       <div className="headerWrap">
@@ -73,21 +62,21 @@ const Container = (props) => {
           <div className="mainNav pcNav">
             <div
               onClick={function () {
-                moveToContentPosition();
+                moveToContentPosition(work);
               }}
             >
               Work
             </div>
             <div
               onClick={function () {
-                moveToContentPosition2();
+                moveToContentPosition(about);
               }}
             >
               About
             </div>
             <div
               onClick={function () {
-                moveToContentPosition3();
+                moveToContentPosition(contact);
               }}
             >
               Contacts
