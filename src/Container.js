@@ -1,8 +1,7 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useRef, useState } from "react";
 import smoothscroll from "smoothscroll-polyfill";
-import ScrollTop from "react-scrolltop-button";
 import CommonSlider from "./CommonSlider";
+import Slider from "react-slick";
 
 const Container = (props) => {
   const work = useRef();
@@ -12,10 +11,10 @@ const Container = (props) => {
   const moreBtn = useRef();
   const [moreBtnClickVal, setMoreBtnClickVal] = useState(false);
 
-  useEffect(() => {
-    console.log(work);
-    smoothscroll.polyfill();
+  /* we specialized in에 들어갈 문구들 */
 
+  useEffect(() => {
+    smoothscroll.polyfill();
     window.addEventListener("scroll", function () {
       if (window.scrollY > 1000) {
         header.current.style.backgroundColor = "#fff";
@@ -45,73 +44,129 @@ const Container = (props) => {
     moreBtn.current.addEventListener("mouseleave", function () {
       setMoreBtnClickVal(false);
     });
-    console.log(moreBtnClickVal);
   }, [moreBtnClickVal]);
 
   const moveToContentPosition = (work) => {
     let workPosition =
       window.pageYOffset + work.current.getBoundingClientRect().top - 100;
-    console.log(workPosition);
     window.scrollTo({ top: workPosition, behavior: "smooth" });
+  };
+
+  const specializeBtnClickEvent = (param) => {
+    console.log("hi");
+  };
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
   };
 
   return (
     <div className="container" id="grid">
       <div className="headerWrap">
         <div className="header" ref={header}>
-          <div className="mainNav pcNav">
-            <div
-              onClick={function () {
-                moveToContentPosition(work);
-              }}
-            >
-              Work
+          <div className="navWrap">
+            <div className="mainNav pcNav">
+              <div
+                onClick={function () {
+                  moveToContentPosition(work);
+                }}
+              >
+                Work
+              </div>
+              <div
+                onClick={function () {
+                  moveToContentPosition(about);
+                }}
+              >
+                About
+              </div>
+              <div
+                onClick={function () {
+                  moveToContentPosition(contact);
+                }}
+              >
+                Contacts
+              </div>
             </div>
-            <div
-              onClick={function () {
-                moveToContentPosition(about);
-              }}
-            >
-              About
+            <div class="hamburger">
+              <div class="bar1"></div>
+              <div class="bar2"></div>
+              <div class="bar3"></div>
             </div>
-            <div
-              onClick={function () {
-                moveToContentPosition(contact);
-              }}
-            >
-              Contacts
+            <div className="logo">
+              <img src="img/logo_blue.png"></img>
             </div>
-          </div>
-          <div class="hamburger">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
-          </div>
-          <div className="logo">
-            <img src="img/logo.png"></img>
           </div>
         </div>
         <div></div>
         <div className="main-slider">
-          <div className="left">
-            {/*  <h1>"We are all designers"</h1> */}
-            <p></p>
+          <div>
+            <Slider {...settings}>
+              <div className="sliderCon sliderCon1"></div>
+              <div className="sliderCon sliderCon2"></div>
+            </Slider>
           </div>
-          <div className="right">
-            {/*  <p>Artygen</p>
-            <p>Space</p> */}
-          </div>
-          {/*   <div className="more">more+</div> */}
-          {/* <div className="moreBtn">
-            <div className="circle"></div>
-            MORE <img src="img/arrow.png" />{" "}
-          </div> */}
         </div>
-        <div className="icon-scroll-p">
+        {/* <div className="icon-scroll-p">
           <div className="icon-scroll"></div>
-        </div>
+        </div> */}
       </div>
       <div className="body">
+        <div className="specialize specialize-pc" ref={about}>
+          <div>
+            <p>We specialized in</p>
+            <h2>
+              AR <span> educational entertainment </span>{" "}
+            </h2>
+            <p>
+              Augmented reality (AR) is an interactive experience of a
+              real-world environment. <br />
+              Based on Augmented Reality, We offer immersive and enjoyable
+              experience with a variety of learning tools like books.
+            </p>
+            <div className="btn">
+              <span
+                className="leftBtn"
+                onClick={() => {
+                  specializeBtnClickEvent();
+                }}
+              >
+                left
+              </span>{" "}
+              | <span className="rightBtn">next</span>
+            </div>
+          </div>
+          <div className="pic">
+            <img src="img/specialize_3 .png" />
+          </div>
+        </div>
+
+        <div className="specialize-mobile" /* ref={about} */>
+          <div className="pic">
+            <img src="img/specialize_3 .png" />
+          </div>
+          <div>
+            <h2>
+              AR <span> educational entertainment </span>{" "}
+            </h2>
+            <p>
+              Augmented reality (AR) is an interactive experience of a
+              real-world environment. <br />
+              Based on Augmented Reality, We offer immersive and enjoyable
+              experience with a variety of learning tools like books.
+            </p>
+            <div className="btn">
+              <span className="bar"></span>
+              <span className="bar"></span>
+              <span>left</span> | <span>next</span>
+            </div>
+          </div>
+        </div>
+
         <div className="latest-work " ref={work}>
           <h2>Our Latest Work</h2>
           <p>
@@ -122,11 +177,11 @@ const Container = (props) => {
           </p>
           <div className="content latest-work-pc">
             <div className="con2">
-              <img src="img/work_content1.png"></img>
+              <img src="img/work/work_content1.png"></img>
               <h2>Interactive Book</h2>
             </div>
             <div className="con3">
-              <img src="img/work_content2.png" />
+              <img src="img/work/work_content2.png" />
               <h2>Purge Limbo</h2>
             </div>
 
@@ -158,79 +213,12 @@ const Container = (props) => {
             {moreBtnClickVal && <span class="preparing"> Coming Soon! </span>}
           </div>
         </div>
-
-        <div className="specialize specialize-pc" ref={about}>
-          <div>
-            <p>We specialized in</p>
-            <h2>
-              AR <span> educational entertainment </span>{" "}
-            </h2>
-            <p>
-              Augmented reality (AR) is an interactive experience of a
-              real-world environment. <br />
-              Based on Augmented Reality, We offer immersive and enjoyable
-              experience with a variety of learning tools like books.
-            </p>
-            <div className="btn">
-              <span className="bar"></span>
-              <span className="bar"></span>
-              <span>left</span> | <span>next</span>
-            </div>
-          </div>
-          <div className="pic">
-            <img src="img/specialize_3 .png" />
-          </div>
-        </div>
-        <div className="specialize-mobile" /* ref={about} */>
-          <div className="pic">
-            <img src="img/specialize_3 .png" />
-          </div>
-          <div>
-            <h2>
-              AR <span> educational entertainment </span>{" "}
-            </h2>
-            <p>
-              Augmented reality (AR) is an interactive experience of a
-              real-world environment. <br />
-              Based on Augmented Reality, We offer immersive and enjoyable
-              experience with a variety of learning tools like books.
-            </p>
-            <div className="btn">
-              <span className="bar"></span>
-              <span className="bar"></span>
-              <span>left</span> | <span>next</span>
-            </div>
-          </div>
-        </div>
       </div>
       <div className="contact" ref={contact}>
         <div className="grid">
           <span>Copyright © Artygen Space Company. All rights reserved.</span>
-
-          {/*  <div>
-            <span>brownrice@artygen.com</span>
-             <i class="fa fa-envelope"> </i>
-          </div> */}
-          {/*  <div>
-            <a>
-              <i class="fa fa-envelope">
-                <span>brownrice@artygen.com</span>
-              </i>
-            </a>
-          </div> */}
-          {/*   <div>8, Teheran-ro 43-gil, Gangnam-gu, Seoul, Republic of Korea</div> */}
         </div>
       </div>
-      {/* <div className="copyright"></div> */}
-      {/*  <ScrollTop
-        text="↑"
-        distance={100}
-        breakpoint={768}
-          style={{ border: "1px solid #de211b" }}
-        className="scroll-your-role"
-        speed={1000}
-        target={75}
-      /> */}
     </div>
   );
 };
