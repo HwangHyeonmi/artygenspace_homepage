@@ -4,6 +4,11 @@
   margin: 0;
 }
 
+.specialize-mobile .specializedTitle {
+  font-weight: 900;
+  margin-bottom: 30px;
+}
+
 @media (max-width: 1300px) and (min-width: 1024px) {
   .latest-work-mobile {
     display: none !important;
@@ -503,6 +508,10 @@ figure {
   overflow: hidden;
   position: relative;
 }
+/* figure .img1 {
+  width: 100%;
+  height: auto;
+} */
 figure:before {
   content: " ";
   display: block;
@@ -645,7 +654,7 @@ figure:hover + span {
 .specialize .pic .picWrap {
   position: relative;
   width: auto;
-  overflow: scroll;
+  overflow: hidden;
   top: 10%;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;

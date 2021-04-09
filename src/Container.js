@@ -27,12 +27,11 @@ const Container = (props) => {
 
     `
     For effective learning, the learner's voluntary motivation must be premised.  <br>
-    In this respect, there is no tool that maximizes the learning effect as immersive and exciting play.<br>
+    In this respect, immersive and exciting play is the best tool that maximizes the learning effect .<br>
     We put these aspects first and foremost when creating our services.`,
-    `We value the relationship between things and things and the environment in which things belongs,<br>
-     rather than the inherent properties of an object.`,
+    `We value the relationship between things and things and the environment in which things belongs rather than the inherent properties of an object.`,
 
-    `As technology advances, the nature and scope of learning are also changing. <br>
+    `As technology advances, the way and scope of learning are also changing. <br>
     We constantly strive to catch changes and consider the direction of learning that users need.`,
   ];
   const [specializedCurrentIndex, setSpecializedCurrentIndex] = useState(0);
@@ -269,7 +268,7 @@ const Container = (props) => {
                 <div className="embed-container ">
                   <iframe
                     type="text/html"
-                    src="https://www.youtube.com/embed/SZqmtx2VtB4?rel=0&autoplay=1&loop=1&playlist=SZqmtx2VtB4&showinfo=0&modestbranding=0&disablekb=1&controls=0"
+                    src="https://www.youtube.com/embed/SZqmtx2VtB4?rel=0&playlist=SZqmtx2VtB4&autoplay=1&loop=1&showinfo=0&modestbranding=0&disablekb=1&controls=0"
                     frameborder="0"
                     allowfullscreen
                   ></iframe>
@@ -335,23 +334,24 @@ const Container = (props) => {
         </div>
 
         <div className="specialize-mobile" /* ref={about} */>
+          <p className="specializedTitle">We specialized in</p>
           <div className="pic">
             <Slider {...settings2}>
               <div>
-                <img src="img/specialize/img_AR.png" />
+                <img src="img/specialize/img_Quiz.png" />
               </div>
 
               <div>
-                <img src="img/specialize/img_Insight.png" />
-              </div>
-              <div>
-                <img src="img/specialize/img_Learning.png" />
+                <img src="img/specialize/img_AR.png" />
               </div>
               <div>
                 <img src="img/specialize/img_Play.png" />
               </div>
               <div>
-                <img src="img/specialize/img_Quiz.png" />
+                <img src="img/specialize/img_Insight.png" />
+              </div>
+              <div>
+                <img src="img/specialize/img_Learning.png" />
               </div>
             </Slider>
           </div>
@@ -368,7 +368,7 @@ const Container = (props) => {
         </div>
 
         <div className="latest-work " ref={work}>
-          <h2>Our Latest Work</h2>
+          <h2>Our Impressive Work</h2>
           <p>
             From funded start-ups to large-scale enterprises, <br></br>we
             proudly partner with ambitious brands and organizations who impact
@@ -378,9 +378,9 @@ const Container = (props) => {
             <div class="hover01 column latest-work-con">
               <div>
                 <figure>
-                  <img src="img/work/work_content2.png" />
+                  <img src="img/work/work_content1.png" className="img1" />
                 </figure>
-                <span>Purge Limbo</span>
+                <span>Omni-Channel Intelligence</span>
               </div>
               <div>
                 <figure>
@@ -390,16 +390,16 @@ const Container = (props) => {
               </div>
               <div>
                 <figure>
-                  <img src="img/work/work_content2.png" />
+                  <img src="img/work/work_content3.png" />
                 </figure>
-                <span>Purge Limbo</span>
+                <span>ARpedia</span>
               </div>
-              <div>
+              {/*   <div>
                 <figure>
                   <img src="img/work/work_content2.png" />
                 </figure>
                 <span>Purge Limbo</span>
-              </div>
+              </div> */}
             </div>
 
             {/* <div className="con4">dd</div> */}
