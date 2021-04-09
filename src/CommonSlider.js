@@ -17,27 +17,20 @@ export default class CommonSlider extends Component {
         <Slider {...settings}>
           <div>
             <div className="con2">
-              <img src="img/work_content1.png"></img>
-              <h2>Interactive Book</h2>
-            </div>
-          </div>
-          <div>
-            <div className="con3">
-              <img src="img/work_content2.png" />
+              <img src="img/work/work_content2.png" />
               <h2>Purge Limbo</h2>
             </div>
           </div>
           <div>
-            <div className="con1">
-              <iframe
-                /*  width={"560"}
-                height="315" */
-                src="https://www.youtube.com/embed/SZqmtx2VtB4"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-              <h2>ARpedia</h2>
+            <div className="con3">
+              <img src="img/work/work_content2.png" />
+              <h2>Purge Limbo</h2>
+            </div>
+          </div>
+          <div>
+            <div className="con3">
+              <img src="img/work/work_content2.png" />
+              <h2>Purge Limbo</h2>
             </div>
           </div>
         </Slider>
