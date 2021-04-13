@@ -1,5 +1,8 @@
-import "./App.css";
-import Container from "./Container";
+import "./css/Common.css";
+import "./css/Tablet.css";
+import "./css/Mobile.css";
+
+import Main from "./Main";
 
 function App() {
   return (
@@ -16,7 +19,7 @@ function App() {
           ★Artygen Space★
         </a>
       </header> */}
-      <Container></Container>
+      <Main></Main>
     </div>
   );
 }
