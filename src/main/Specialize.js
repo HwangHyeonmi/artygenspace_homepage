@@ -22,10 +22,13 @@ const Specialize = (props) => {
     We constantly strive to catch changes and consider the direction of learning that users need.`,
   ];
   const [specializedCurrentIndex, setSpecializedCurrentIndex] = useState(0);
-  const [clickVal, setClickVal] = useState(true);
-  let [currentPosition, setCurrentPosition] = useState(0);
+  const [clickVal, setClickVal] = useState(true); //슬라이드 좌우버튼 클릭했는지 확인
+  let [currentPosition, setCurrentPosition] = useState(0); //현 슬라이더의 위치
 
   useEffect(() => {
+    //슬라이더 무한 루프를 위한 dom 동적 생성
+    //마운트 되고 한번만 실행
+
     const picWrapDiv = picWrap.current;
     var picDiv = picWrap.current.getElementsByTagName("div");
     var LastDiv = picDiv[picDiv.length - 1];
@@ -39,9 +42,11 @@ const Specialize = (props) => {
   }, []);
 
   useEffect(() => {
-    window.addEventListener("resize", function () {
-      /*   setResize(!resize); */
-    });
+    //슬라이더의 크기를 동적으로 계산함
+    //윈도우 창 크기가 달라질 수 있기 때문
+    //현재 리사이즈 될 때마다 달라지는 거 확인하기 위해 업데이트문 안에 넣어놓음.
+    //리사이즈 될 때 업데이트 되게 바꿔야 함.
+
     const picWrapDiv = picWrap.current;
     var picDiv = picWrap.current.getElementsByTagName("div");
 
@@ -55,31 +60,26 @@ const Specialize = (props) => {
   });
 
   useEffect(() => {
-    /* console.log(p); */
+    //현재 index가 바뀔 때마다 본문 내용 바뀌게
 
     document.querySelector(".specialize div .explain").innerHTML =
       specializedContent[specializedCurrentIndex];
   }, [specializedCurrentIndex, specializedContent]);
 
   const specializeBtnClickEvent = (param) => {
-    console.log("hi");
-
-    var picDiv = picWrap.current.getElementsByTagName("div");
-
+    //좌우 버튼 클릭했을 때 실행될 함수
     const picWrapDiv = picWrap.current;
-
+    var picDiv = picWrapDiv.getElementsByTagName("div");
     picWrapDiv.classList.add("slide");
 
+    //clickval => 클릭하고 있는 동안 클릭이 안 되게 막는다.
     if (clickVal) {
       if (param === "right") {
         if (specializedCurrentIndex === 4) {
           setSpecializedCurrentIndex(0);
-          console.log(specializedCurrentIndex);
         } else {
           setSpecializedCurrentIndex(specializedCurrentIndex + 1);
         }
-
-        console.log(specializedCurrentIndex);
         setCurrentPosition(
           (currentPosition -= picWrap.current.parentNode.offsetWidth)
         );
@@ -92,7 +92,6 @@ const Specialize = (props) => {
         } else {
           setSpecializedCurrentIndex(specializedCurrentIndex - 1);
         }
-        console.log(currentPosition);
         setCurrentPosition(
           (currentPosition += picWrap.current.parentNode.offsetWidth)
         );
@@ -135,17 +134,6 @@ const Specialize = (props) => {
         setClickVal(true);
       }, 500);
     }
-  };
-  const settings2 = {
-    afterChange: function (i) {
-      document.querySelector(".specialize-mobile .explain").innerHTML =
-        specializedContent[i];
-      setSpecializedCurrentIndex(i);
-    },
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    dots: true,
   };
 
   return (

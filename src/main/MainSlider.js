@@ -29,6 +29,7 @@ const MainSlider = (props) => {
           <div className="sliderCon2">
             <div className="embed-container ">
               <video
+                preload="metadata"
                 ref={video1}
                 /*  controls */
                 autoPlay
@@ -48,6 +49,7 @@ const MainSlider = (props) => {
       </div>
       <div className="ms-slider-mobile">
         <video
+          preload="metadata"
           ref={video2}
           /* controls */
           autoPlay

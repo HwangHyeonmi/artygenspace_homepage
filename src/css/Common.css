@@ -160,6 +160,7 @@ h1 {
   line-height: 40px;
   text-align: center;
   position: relative;
+  cursor: pointer;
 }
 .mainNav > div:after {
   content: " ";
@@ -263,7 +264,8 @@ h1 {
   height: auto;
 }
 .latest-work > h2,
-.specialize > h2 {
+.specialize > h2,
+.contact > div > h2 {
   font-size: 45px;
   text-align: left;
   margin-bottom: 30px;
@@ -379,6 +381,7 @@ figure:before {
 }
 
 .latest-work .moreBtn {
+  cursor: pointer;
   grid-column: 1/3;
   height: 80px;
   text-align: center;
@@ -419,6 +422,11 @@ figure:before {
 }
 
 /* specialize */
+.specialize .leftBtn,
+.specialize .rightBtn {
+  cursor: pointer;
+}
+
 .specialize .leftBtn:after,
 .specialize .rightBtn:after {
   content: "";
@@ -534,23 +542,110 @@ figure:before {
 }
 
 /* contact */
+
+.contactWrap {
+  display: flex;
+  height: 100%;
+}
+.contactWrap h2 {
+  font-size: 45px;
+  margin-bottom: 4%;
+  display: inline-block;
+}
+
+.contactWrap .text {
+  font-size: 25px;
+  line-height: 40px;
+  margin-bottom: 3%;
+}
+.contactWrap > div {
+  flex: 1;
+}
+.contactWrap > div:nth-child(1) {
+  height: 100%;
+}
+.contactWrap > div:nth-child(2) {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+
 .contact {
+  width: 100%;
+  height: 700px;
+
+  margin-bottom: 100px;
+}
+#map {
+  width: 100%;
+  height: 100%;
+
+  box-sizing: border-box;
+}
+.mapTitle {
+  display: none !important;
+}
+
+.contactTitle {
+  height: 25%;
+}
+.sendContact {
+  height: 75%;
+}
+.sendContact > form {
+  width: 100%;
+  height: 100%;
+
+  box-sizing: border-box;
+}
+.sendContact > form > input {
+  cursor: pointer;
+  width: 90%;
+  height: 14%;
+
+  border: 1px solid #ccc;
+  margin-bottom: 3%;
+  font-size: 25px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+.sendContact > form > textarea {
+  width: 90%;
+  height: 45%;
+  margin-bottom: 3%;
+  border: 1px solid #ccc;
+  font-size: 25px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.submit {
+  background-color: #1e1e20;
+  height: 15% !important;
+  color: #fff !important;
+  font-size: 25px;
+  color: #fff;
+  border: none !important;
+  /*  border-radius: 5px; */
+}
+
+/* footer */
+.footer {
   height: 150px;
   width: 1000px;
   background-color: #05a8e3;
   padding: 0 50px;
   box-sizing: border-box;
 }
-.contact .phone {
+.footer .phone {
   width: 30px;
   height: 30px;
 }
-.contact .phone:before {
+.footer .phone:before {
   font-size: 2vw;
   color: #5f7697;
   font-family: SSCommunity;
 }
-.contact .grid {
+.footer .grid {
   width: 100%;
   height: 150px;
   margin: 0 auto;
@@ -560,19 +655,19 @@ figure:before {
   padding: 0 50px;
   box-sizing: border-box;
 }
-.contact .grid span {
+.footer .grid span {
   font-size: 24px;
   line-height: 50px;
 }
-.contact .grid a {
+.footer .grid a {
   display: inline-block;
   width: 100%;
   height: 100px;
 }
-.contact .grid {
+.footer .grid {
   position: relative;
 }
-.contact .grid > span {
+.footer .grid > span {
   width: 100%;
   text-align: center;
   color: #fff;
@@ -584,10 +679,10 @@ figure:before {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.contact .grid .arrow {
+.footer .grid .arrow {
   width: 70px;
 }
-.contact .grid a i {
+.footer .grid a i {
   /*  width: 100%;
   height: 100%; */
   font-size: 2.2vw;
@@ -595,7 +690,7 @@ figure:before {
   opacity: 0.6;
   text-align: center;
 }
-.contact .grid a span {
+.footer .grid a span {
   font-size: 35px;
   font-size: 28px;
   position: relative;
@@ -603,17 +698,17 @@ figure:before {
 
   left: 10px;
 }
-.contact .grid > div {
+.footer .grid > div {
   width: 100%;
 }
 
-.contact .grid div:nth-child(2) span {
+.footer .grid div:nth-child(2) span {
   left: 20px !important;
   color: #de211b;
   opacity: 0.6;
 }
 
-.contact .grid > div:nth-child(3) {
+.footer .grid > div:nth-child(3) {
   grid-column: 1/3;
   text-align: center;
   font-size: 1vw;
@@ -649,15 +744,27 @@ button {
     display: none;
   }
 
-  .contact-mobile {
+  .footer-mobile {
     display: none;
   }
-  .contact-pc {
+  .footer-pc {
     display: block;
   }
 }
 
 @media (max-width: 1400px) and (min-width: 1024px) {
+  .contactTitle {
+    height: 20%;
+  }
+  .sendContact {
+    height: 80%;
+  }
+  .contact {
+    height: 500px;
+  }
+  .contactWrap .text {
+    display: none;
+  }
   .pic {
     top: 10%;
   }
@@ -671,10 +778,13 @@ button {
     display: none;
   }
 
-  .contact-mobile {
+  .footer-mobile {
     display: none;
   }
-  .contact-pc {
+  .footer-pc {
     display: block;
   }
+}
+.placeholder::-webkit-input-placeholder {
+  color: #1383ac;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const SpecializeMobile = (props) => {
   const specializedTitleArray = ["Quiz", "AR", "Play", "Insight", "Learning"];

@@ -3,8 +3,21 @@ import "./css/Tablet.css";
 import "./css/Mobile.css";
 
 import Main from "./Main";
+import { useEffect, useRef, useState } from "react";
+import MainSlider from "./main/MainSlider";
+import Header from "./main/Header";
 
 function App() {
+  const header = useRef();
+  const [contactState, setContactState] = useState(false);
+  const clickNav = () => {
+    if (contactState === false) {
+      setContactState(true);
+    } else {
+      setContactState(false);
+    }
+  };
+
   return (
     <div className="App">
       {/* <header className="App-header">
@@ -19,7 +32,22 @@ function App() {
           ★Artygen Space★
         </a>
       </header> */}
-      <Main></Main>
+
+      <div className="container" id="grid">
+        <div className="headerWrap">
+          <div className="header" ref={header}>
+            {
+              <Header
+                header={header}
+                contactState={contactState}
+                clickNav={clickNav}
+              ></Header>
+            }
+          </div>
+          {!contactState && <MainSlider></MainSlider>}
+        </div>
+      </div>
+      {!contactState && <Main></Main>}
     </div>
   );
 }

@@ -1,11 +1,50 @@
-import React from "react";
-import { useRef } from "react/cjs/react.development";
-
+import React, { useEffect, useRef, useState } from "react";
+import smoothscroll from "smoothscroll-polyfill";
 const Header = (props) => {
-  const moveToContentPosition = props.moveToContentPosition;
-  const work = props.work;
-  const about = props.about;
-  const contact = props.contact;
+  let work;
+  let about;
+  let contact;
+  const header = props.header;
+  useEffect(() => {
+    work = document.querySelector(".latest-work");
+    about = document.querySelector(".specialize-pc");
+    contact = document.querySelector(".contact");
+  }, []);
+
+  useEffect(() => {
+    smoothscroll.polyfill();
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 1000) {
+        header.current.style.backgroundColor = "#fff";
+        /* header.current.style.boxShadow = " 5px 3px 5px 5px #ccc"; */
+      } else {
+        header.current.style.backgroundColor = "transparent";
+      }
+    });
+
+    window.addEventListener("scroll", function () {
+      if (window.innerWidth < 767) {
+        if (window.scrollY > 720) {
+          header.current.style.backgroundColor = "#fff";
+          /* header.current.style.boxShadow = " 5px 3px 5px 5px #ccc"; */
+        } else {
+          header.current.style.backgroundColor = "transparent";
+        }
+      }
+    });
+  }, []);
+
+  const moveToContentPosition = (work) => {
+    console.log(work);
+    if (work === "logo") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      let workPosition =
+        window.pageYOffset + work.getBoundingClientRect().top - 100;
+      window.scrollTo({ top: workPosition, behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="navWrap">
       <div className="mainNav pcNav">
@@ -26,6 +65,7 @@ const Header = (props) => {
         <div
           onClick={function () {
             moveToContentPosition(contact);
+            /*     props.clickNav(); */
           }}
         >
           Contacts

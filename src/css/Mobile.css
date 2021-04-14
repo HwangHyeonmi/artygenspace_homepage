@@ -1,8 +1,25 @@
 @media (max-width: 1023px) and (min-width: 768px) {
-  .contact-mobile {
+  .body {
+    margin-top: 70px;
+  }
+
+  .contactTitle {
+    height: 20%;
+  }
+  .sendContact {
+    height: 80%;
+  }
+  .contact {
+    height: 500px;
+  }
+  .contactWrap .text {
+    display: none;
+  }
+
+  .footer-mobile {
     display: block;
   }
-  .contact-pc {
+  .footer-pc {
     display: none;
   }
   .ms-slider-mobile {
@@ -29,7 +46,7 @@
     width: 10px;
   }
   .latest-work .moreBtn {
-    margin-top: 150px !important;
+    margin-top: 70px !important;
   }
   .latest-work-mobile img {
     width: 90% !important;
@@ -47,7 +64,7 @@
     background-position: 50% 0 !important;
   }
   .specialize-mobile {
-    margin-bottom: 100px !important;
+    margin-bottom: 70px !important;
   }
   .body {
     padding: 0 30px !important;
@@ -77,6 +94,9 @@
   .latest-work > p {
     width: 100% !important;
     display: none;
+  }
+  .mobile-line {
+    margin-bottom: 50px !important;
   }
   .latest-work .con1 img,
   .latest-work .con2 img,
@@ -180,7 +200,17 @@
   .headerWrap {
     height: auto !important;
   }
+  .mobile-line {
+    width: 95%;
+    height: 2px;
+    background-color: #ccc;
 
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+  .latest-work {
+    margin-top: 50px;
+  }
   .ms-slider-pc {
     display: none;
   }
@@ -204,7 +234,7 @@
   .latest-work-mobile {
     margin-bottom: 50px !important;
   }
-  .contact .grid span {
+  .footer .grid span {
     font-size: 20px !important;
   }
   .moreBtn .preparing {
@@ -219,6 +249,69 @@
 }
 
 @media (max-width: 767px) and (min-width: 320px) {
+  .latest-work {
+    margin-top: 50px;
+  }
+  .mobile-line {
+    width: 95%;
+    height: 2px;
+    background-color: #ccc;
+
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+
+  .body {
+    margin-top: 70px;
+  }
+  .mapTitle {
+    display: block !important;
+  }
+
+  .contactWrap h2 {
+    font-size: 30px;
+  }
+  .contact {
+    height: 1200px;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  .sendContact > form > input {
+    width: 100%;
+    font-size: 20px;
+  }
+  .contactWrap {
+    display: inline-block;
+  }
+  .contactTitle {
+    height: 10%;
+    margin-bottom: 10px;
+  }
+  .sendContact {
+    height: 80%;
+  }
+
+  .contactWrap > div:nth-child(1) {
+    height: 500px;
+    margin-bottom: 50px;
+  }
+  .contactWrap > div:nth-child(2) {
+    height: 500px;
+  }
+
+  .contactWrap .text {
+    display: none;
+  }
+  .sendContact > form > textarea {
+    width: 100%;
+    font-size: 20px;
+  }
+  #map {
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+
   @media (-webkit-video-playable-inline) {
     .ms-slider-mobile video {
       display: initial;
@@ -230,10 +323,10 @@
   .latest-work-mobile .slick-dots {
     margin-bottom: -80px !important;
   }
-  .contact-mobile {
+  .footer-mobile {
     display: block;
   }
-  .contact-pc {
+  .footer-pc {
     display: none;
   }
 
@@ -251,14 +344,14 @@
     width: 10px;
   }
   .latest-work .moreBtn {
-    margin-top: 150px !important;
+    margin-top: 70px !important;
   }
   .latest-work-mobile img {
     width: 100% !important;
     margin: 0 auto;
   }
   .main-slider {
-    height: auto !vuimportant;
+    height: auto !important;
   }
   .ms-slider-pc {
     display: none;
@@ -385,7 +478,7 @@
     width: 100px !important;
   }
   .header {
-    /* height: 70px !important; */
+    height: 70px !important;
   }
 
   /* Rotate first bar */
@@ -453,13 +546,13 @@
     margin-bottom: 20px;
   }
   .specialize-mobile {
-    margin-bottom: 70px;
+    margin-bottom: 50px;
   }
 
   .specialize-mobile h2 span {
     font-size: 23px !important;
   }
-  .contact {
+  .footer {
     padding: 0 20px !important;
   }
   .specialize-mobile p {
@@ -471,7 +564,7 @@
     margin-top: 30px;
     display: none;
   }
-  .contact .grid span {
+  .footer .grid span {
     font-size: 16px !important;
   }
   .latest-work .moreBtn {
