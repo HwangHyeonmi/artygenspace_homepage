@@ -4,16 +4,24 @@ import ContactUs from "./ContactUs";
 import NaverAPIMap from "./NaverAPIMap";
 
 const Contact = (props) => {
+  const cancleBtn = () => {
+    props.clickNav();
+  };
+
   return (
     <div className="contactWrap">
       <div>
         <div className="contactTitle">
           <h2>Contact Us</h2>
-          <p className="text">
-            Do you want to work with us?
-            <br />
-            Contact us!
-          </p>
+          <p className="text">Do you want to work with us?</p>
+          <div
+            className="cancle"
+            onClick={function () {
+              cancleBtn();
+            }}
+          >
+            <img alt="purge limbo" src="img/cancle.png" />
+          </div>
         </div>
         <div className="sendContact">
           {/* <form
@@ -41,12 +49,12 @@ const Contact = (props) => {
           <ContactUs></ContactUs>
         </div>
       </div>
-      <div>
-        <div id="map">
+      {/* <div>
+         <div id="map">
           <h2 className="mapTitle">Location</h2>
           <NaverAPIMap></NaverAPIMap>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

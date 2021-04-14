@@ -1,4 +1,127 @@
+@media (max-width: 1023px) {
+  .locationMobile {
+    position: relative;
+    top: 70px;
+    height: 1000px;
+    padding: 0 20px;
+    display: block;
+  }
+
+  .locationMobile .map {
+    width: 80%;
+    height: 500px;
+    margin: 0 auto;
+  }
+  .contactBg {
+    opacity: 0.7;
+  }
+  .contact {
+    width: 80%;
+  }
+
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+  }
+  .mobileSubWrap {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+  }
+  .mobileNav {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    z-index: 100;
+    display: none;
+  }
+  .mobileNavBg {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    position: absolute;
+    z-index: 1000;
+    left: -20px;
+    top: -20px;
+  }
+  .mobileNavBg .textWrap {
+    background-color: #fff;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .mobileNavBg .textWrap > div {
+    background-image: linear-gradient(249deg, #822bfe, #05a8e3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 50px;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 50px;
+    cursor: pointer;
+  }
+  .menu {
+    display: block;
+    position: relative;
+    z-index: 1000;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    top: -10px;
+  }
+  .logo {
+    right: 0;
+    position: absolute;
+  }
+  .line {
+    fill: none;
+    stroke: black;
+    stroke-width: 6;
+    transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+      stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .line1 {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+  }
+  .line2 {
+    stroke-dasharray: 60 60;
+    stroke-width: 6;
+  }
+  .line3 {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+  }
+  .opened .line1 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+  }
+  .opened .line2 {
+    stroke-dasharray: 1 60;
+    stroke-dashoffset: -30;
+    stroke-width: 6;
+  }
+  .opened .line3 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+  }
+}
+
 @media (max-width: 1023px) and (min-width: 768px) {
+  .mobileNavBg {
+    left: -30px;
+    top: -40px;
+  }
   .body {
     margin-top: 70px;
   }
@@ -170,9 +293,7 @@
   .pcNav {
     display: none !important;
   }
-  .logo {
-    left: 50px !important;
-  }
+
   .specialize-pc {
     display: none !important;
   }
@@ -268,40 +389,6 @@
     display: block !important;
   }
 
-  .contactWrap h2 {
-    font-size: 30px;
-  }
-  .contact {
-    height: 1200px;
-    padding: 0 10px;
-    box-sizing: border-box;
-  }
-  .sendContact > form > input {
-    width: 100%;
-    font-size: 20px;
-  }
-  .contactWrap {
-    display: inline-block;
-  }
-  .contactTitle {
-    height: 10%;
-    margin-bottom: 10px;
-  }
-  .sendContact {
-    height: 80%;
-  }
-
-  .contactWrap > div:nth-child(1) {
-    height: 500px;
-    margin-bottom: 50px;
-  }
-  .contactWrap > div:nth-child(2) {
-    height: 500px;
-  }
-
-  .contactWrap .text {
-    display: none;
-  }
   .sendContact > form > textarea {
     width: 100%;
     font-size: 20px;
@@ -395,11 +482,9 @@
     width: 100% !important;
     display: none;
   }
-  .logo {
-    left: 0 !important;
-  }
+
   .navWrap {
-    padding: 20px 20px !important;
+    padding: 20px 20px;
   }
   .latest-work .con1 iframe,
   .latest-work .con2 img,
@@ -453,9 +538,9 @@
   }
   .hamburger {
     display: inline-block;
-    /*  cursor: pointer;
+    cursor: pointer;
     position: absolute;
-    right: 20px; */
+    right: 20px;
   }
 
   .specialize-mobile .slick-dots > li {
@@ -484,7 +569,7 @@
   /* Rotate first bar */
   .change .bar1 {
     -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-    transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-4px, 3px);
   }
 
   /* Fade out the second bar */
@@ -501,9 +586,7 @@
   .pcNav {
     display: none !important;
   }
-  .logo {
-    left: 20px !important;
-  }
+
   .specialize-pc {
     display: none !important;
   }

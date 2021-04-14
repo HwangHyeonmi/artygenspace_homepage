@@ -3,6 +3,7 @@ import Specialize from "./main/Specialize";
 import SpecializeMobile from "./main/SpecializeMobile";
 import LatestWork from "./main/LatestWork";
 import Contact from "./main/Contact";
+import NaverAPIMap from "./main/NaverAPIMap";
 const Main = (props) => {
   const work = useRef();
   const about = useRef();
@@ -26,7 +27,9 @@ const Main = (props) => {
           <Contact></Contact>
         </div> */}
       </div>
-
+      <div>
+        <NaverAPIMap></NaverAPIMap>
+      </div>
       <div className="footer footer-pc">
         <div className="grid">
           <span>Copyright © Artygen Space Company. All rights reserved.</span>

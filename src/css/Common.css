@@ -4,9 +4,45 @@
   margin: 0;
 }
 
+/* .locationMobile {
+  display: none;
+}
+.location {
+  width: 100%;
+  height: 1000px;
+}
+.locationPC {
+  width: 100%;
+  height: 700px;
+  position: relative;
+  top: 100px;
+}
+.locationPC .map {
+  width: 50%;
+  height: 70%;
+} */
+
+.menu {
+  display: none;
+}
+
 html,
 body {
   overflow-x: hidden;
+}
+
+.locationMobile {
+  position: relative;
+  top: 70px;
+  height: 1000px;
+  padding: 0 20px;
+  display: block;
+}
+
+.locationMobile .map {
+  width: 80%;
+  height: 500px;
+  margin: 0 auto;
 }
 
 #videoBg {
@@ -142,7 +178,7 @@ h1 {
 }
 
 .header .logo {
-  /* position: absolute; */
+  position: absolute;
   right: 30px;
   z-index: 100;
 }
@@ -150,10 +186,10 @@ h1 {
 /* main-nav */
 
 .mainNav {
-  width: 240px;
+  width: 350px;
   height: 40px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .mainNav > div {
@@ -544,7 +580,6 @@ figure:before {
 /* contact */
 
 .contactWrap {
-  display: flex;
   height: 100%;
 }
 .contactWrap h2 {
@@ -571,9 +606,14 @@ figure:before {
 }
 
 .contact {
-  width: 100%;
-  height: 700px;
-
+  width: 40%;
+  padding: 50px;
+  box-sizing: border-box;
+  height: 60%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   margin-bottom: 100px;
 }
 #map {
@@ -600,7 +640,7 @@ figure:before {
 }
 .sendContact > form > input {
   cursor: pointer;
-  width: 90%;
+  width: 100%;
   height: 14%;
 
   border: 1px solid #ccc;
@@ -610,7 +650,7 @@ figure:before {
   box-sizing: border-box;
 }
 .sendContact > form > textarea {
-  width: 90%;
+  width: 100%;
   height: 45%;
   margin-bottom: 3%;
   border: 1px solid #ccc;
@@ -787,4 +827,35 @@ button {
 }
 .placeholder::-webkit-input-placeholder {
   color: #1383ac;
+}
+
+.contactP {
+  position: absolute;
+  top: 0;
+
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+}
+.contact {
+  background: #fff;
+  z-index: 100;
+}
+.contactBg {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.5;
+}
+
+.contact .cancle {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  text-align: center;
+}
+.contact .cancle img {
+  width: 80%;
 }
