@@ -25,12 +25,20 @@ const LatestWork = (props) => {
   };
 
   useEffect(() => {
-    moreBtn.current.addEventListener("mouseenter", function () {
-      setMoreBtnClickVal(true);
-    });
-    moreBtn.current.addEventListener("mouseleave", function () {
-      setMoreBtnClickVal(false);
-    });
+    moreBtn.current.addEventListener(
+      "mouseenter",
+      function () {
+        setMoreBtnClickVal(true);
+      },
+      true
+    );
+    moreBtn.current.addEventListener(
+      "mouseleave",
+      function () {
+        setMoreBtnClickVal(false);
+      },
+      true
+    );
   }, [moreBtnClickVal]);
 
   return (

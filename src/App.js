@@ -3,7 +3,7 @@ import "./css/Tablet.css";
 import "./css/Mobile.css";
 
 import Main from "./Main";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import MainSlider from "./main/MainSlider";
 import Header from "./main/Header";
 import Contact from "./main/Contact";
@@ -13,6 +13,8 @@ function App() {
   const header = useRef();
   const [contactState, setContactState] = useState(false);
   const [mainVal, setMainVal] = useState(true);
+  const app = useRef();
+  const appCurrent = app.current;
 
   const saveMainVal = (val) => {
     setMainVal(val);
@@ -28,7 +30,6 @@ function App() {
     }
   };
   const [hamburgerVal, setHamburgerVal] = useState(false);
-  const [contactVal, setContactVal] = useState(false);
 
   const saveHamburgerVal = (val) => {
     setHamburgerVal(val);
@@ -69,7 +70,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="App" ref={app}>
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>작업중입니다.^^</p>
@@ -87,6 +88,7 @@ function App() {
         <div className="headerWrap">
           <div className="header" ref={header}>
             <Header
+              app={app}
               header={header}
               contactState={contactState}
               clickNav={clickNav}
@@ -95,6 +97,7 @@ function App() {
               saveContactVal={saveContactVal}
               saveLocationVal={saveLocationVal}
               saveMainVal={saveMainVal}
+              locationVal={locationVal}
             ></Header>
           </div>
           {mainVal && <MainSlider></MainSlider>}
@@ -108,6 +111,7 @@ function App() {
             <Contact contactState={contactState} clickNav={clickNav}></Contact>
           </div>
           <div className="contactBg"></div>
+          <div className="contactBg2"></div>
         </div>
       )}
 
@@ -121,6 +125,7 @@ function App() {
               ></Contact>
             </div>
             <div className="contactBg"></div>
+            <div className="contactBg2"></div>
           </div>
         </div>
       )}

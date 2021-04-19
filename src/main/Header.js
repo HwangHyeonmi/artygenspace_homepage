@@ -1,29 +1,38 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import smoothscroll from "smoothscroll-polyfill";
 const Header = (props) => {
   const [work, setWork] = useState();
   const [about, setAbout] = useState();
-  const [contact, setContact] = useState();
+  const [workPosition, setWorkPosition] = useState();
+  const [aboutPosition, setAboutPosition] = useState();
   const [mainNavVal, setMainNavVal] = useState(true);
   const header = props.header;
+  const app = props.app;
   useEffect(() => {
     setWork(document.querySelector(".latest-work"));
     setAbout(document.querySelector(".specialize-pc"));
+    setWorkPosition(
+      window.pageYOffset +
+        document.querySelector(".latest-work").getBoundingClientRect().top -
+        100
+    );
+    setAboutPosition(
+      window.pageYOffset +
+        document.querySelector(".specialize-pc").getBoundingClientRect().top -
+        100
+    );
   }, []);
-
+  const locationVal = props.locationVal;
   useEffect(() => {
     smoothscroll.polyfill();
-    window.addEventListener("scroll", function () {
-      if (window.scrollY > 1000) {
-        header.current.style.backgroundColor = "#fff";
-        /* header.current.style.boxShadow = " 5px 3px 5px 5px #ccc"; */
-      } else {
-        header.current.style.backgroundColor = "transparent";
-      }
-    });
+    window.addEventListener("scroll", scrollEvent, true);
+  }, [locationVal]);
 
-    window.addEventListener("scroll", function () {
-      if (window.innerWidth < 767) {
+  const scrollEvent = () => {
+    if (window.innerWidth < 767) {
+      if (locationVal) {
+        /*   header.current.style.backgroundColor = "#fff"; */
+      } else {
         if (window.scrollY > 720) {
           header.current.style.backgroundColor = "#fff";
           /* header.current.style.boxShadow = " 5px 3px 5px 5px #ccc"; */
@@ -31,22 +40,36 @@ const Header = (props) => {
           header.current.style.backgroundColor = "transparent";
         }
       }
-    });
-  }, []);
+    } else {
+      if (locationVal) {
+        /* header.current.style.backgroundColor = "#fff"; */
+      } else {
+        console.log(locationVal);
+        if (window.scrollY > 1000) {
+          header.current.style.backgroundColor = "#fff";
+        } else {
+          header.current.style.backgroundColor = "transparent";
+        }
+      }
+    }
+  };
 
-  const moveToContentPosition = (work) => {
+  const moveToContentPosition = (work, position) => {
+    console.log(work);
+
     if (work === "logo") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
-      let workPosition =
-        window.pageYOffset + work.getBoundingClientRect().top - 100;
+      let workPosition = position;
       window.scrollTo({ top: workPosition, behavior: "smooth" });
+      console.log("else", workPosition);
     }
   };
 
   const [hamburgerVal, setHamburgerVal] = useState(false);
 
   const hamburgerClick = () => {
+    document.querySelector("body").scrollTo({ top: 0, behavior: "smooth" });
     const body = document.querySelector("body");
     const menu = document.querySelector(".menu");
 
@@ -87,7 +110,7 @@ const Header = (props) => {
             onClick={function () {
               console.log(work);
               if (work) {
-                moveToContentPosition(work);
+                moveToContentPosition(work, workPosition);
               }
             }}
           >
@@ -96,7 +119,7 @@ const Header = (props) => {
           <div
             onClick={function () {
               if (about) {
-                moveToContentPosition(about);
+                moveToContentPosition(about, aboutPosition);
               }
             }}
           >
@@ -143,7 +166,7 @@ const Header = (props) => {
       <div className="mobileNav">
         <div className="mobileNavBg">
           <div className="textWrap">
-            <div
+            {/* <div
               onClick={function () {
                 alert("Coming Soon!");
               }}
@@ -156,7 +179,7 @@ const Header = (props) => {
               }}
             >
               ABOUT
-            </div>
+            </div> */}
             <div
               onClick={function () {
                 props.saveContactVal(true);
@@ -183,6 +206,7 @@ const Header = (props) => {
           moveToContentPosition("logo");
           props.saveMainVal(true);
           setMainNavVal(true);
+          props.saveLocationVal(false);
         }}
       >
         <img alt="logo" src="img/logo_blue.png"></img>

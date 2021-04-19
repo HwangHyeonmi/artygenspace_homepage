@@ -3,23 +3,21 @@ import { useEffect, useRef, useState } from "react";
 
 const Specialize = (props) => {
   const picWrap = useRef();
-  const specializedTitleArray = ["Quiz", "AR", "Play", "Insight", "Learning"];
+  const specializedTitleArray = ["AR", "Insight", "Quiz", "Learning", "Play"];
   const specializedContent = [
-    `Quizzes are the most effective indicators of your learning status and are a great help in improving your concentration. <br> 
-    We provide customized quizzes based on artificial intelligence to maximize the learning effect of users.`,
     `
     Augmented reality (AR) is an interactive experience of a real-world environment. <br>
     Based on Augmented Reality, We offer immersive and enjoyable experience with a variety of learning tools like books.
   `,
-
-    `
-    For effective learning, the learner's voluntary motivation must be premised.  <br>
-    In this respect, immersive and exciting play is the best tool that maximizes the learning effect .<br>
-    We put these aspects first and foremost when creating our services.`,
     `We value the relationship between things and things and the environment in which things belongs rather than the inherent properties of an object.`,
-
+    `Quizzes are the most effective indicators of your learning status and are a great help in improving your concentration. <br> 
+    We provide customized quizzes based on artificial intelligence to maximize the learning effect of users.`,
     `As technology advances, the way and scope of learning are also changing. <br>
     We constantly strive to catch changes and consider the direction of learning that users need.`,
+    `
+    For effective learning, the learner's voluntary motivation must be premised.  <br>
+    In this respect, immersive and exciting play is the best tool that maximizes the learning effect.<br>
+    We put these aspects first and foremost when creating our services.`,
   ];
   const [specializedCurrentIndex, setSpecializedCurrentIndex] = useState(0);
   const [clickVal, setClickVal] = useState(true); //슬라이드 좌우버튼 클릭했는지 확인

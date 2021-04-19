@@ -2,12 +2,10 @@ import React, { useRef } from "react";
 import Specialize from "./main/Specialize";
 import SpecializeMobile from "./main/SpecializeMobile";
 import LatestWork from "./main/LatestWork";
-import Contact from "./main/Contact";
 import NaverAPIMap from "./main/NaverAPIMap";
 const Main = (props) => {
   const work = useRef();
   const about = useRef();
-  const contact = useRef();
 
   return (
     <div className="container" id="grid">

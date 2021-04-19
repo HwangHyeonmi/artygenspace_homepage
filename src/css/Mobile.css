@@ -1,15 +1,40 @@
 @media (max-width: 1023px) {
+  .contactBg2 {
+    width: 80%;
+
+    background-color: #000;
+    opacity: 0.5;
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+    display: none;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .App {
+    overflow: hidden;
+  }
+  .main-slider {
+    height: calc(80vh);
+  }
+  .main-slider > div {
+    height: 100% !important;
+  }
   .locationMobile {
     position: relative;
-    top: 70px;
-    height: 1000px;
+    top: 0px;
+    margin-top: 70px;
+    height: auto !important;
     padding: 0 20px;
     display: block;
+    width: 80%;
+    overflow: hidden;
   }
 
   .locationMobile .map {
-    width: 80%;
-    height: 500px;
+    width: 100%;
+    height: 300px;
     margin: 0 auto;
   }
   .contactBg {
@@ -17,12 +42,43 @@
   }
   .contact {
     width: 80%;
+    padding: 20px;
   }
-
+  .contactTitle h2 {
+    font-size: 30px;
+  }
+  .contactTitle .text {
+    display: none;
+  }
+  .contactTitle .cancle {
+    width: 25px;
+  }
+  .sendContact > form > input {
+    font-size: 15px;
+  }
+  .sendContact > form > textarea {
+    font-size: 15px;
+  }
+  .contact .cancle {
+    top: 20px;
+    right: 20px;
+  }
+  .contactTitle {
+    height: 15%;
+  }
+  .sendContact > form > textarea {
+    height: 55%;
+  }
+  .locationMobile .title {
+    font-size: 25px;
+  }
+  .locationMobile .title::after {
+    top: 10px;
+  }
   html,
   body {
     width: 100%;
-    height: 100%;
+    /*  height: 100%; */
   }
   .mobileSubWrap {
     width: 100%;
@@ -58,11 +114,22 @@
     background-image: linear-gradient(249deg, #822bfe, #05a8e3);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 50px;
+    font-size: 30px;
     font-weight: 900;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     cursor: pointer;
+  }
+  .locationMobile .info .bold {
+    font-size: 18px;
+    font-weight: 900;
+    margin-right: 10px;
+    width: 80px;
+    display: inline-block;
+    /*  margin-bottom: 10px; */
+  }
+  .locationMobile .info span:nth-child(2) {
+    font-size: 15px;
   }
   .menu {
     display: block;
@@ -73,9 +140,10 @@
     cursor: pointer;
     display: flex;
     padding: 0;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     top: -10px;
+    left: -10px;
   }
   .logo {
     right: 0;
@@ -117,13 +185,29 @@
   }
 }
 
+@media (max-height: 812px) and (min-height: 768px) {
+  .main-slider {
+    height: calc(70vh) !important;
+  }
+}
+
+@media (max-height: 1024px) and (min-height: 825px) {
+  .main-slider {
+    height: calc(120vh) !important;
+  }
+}
+@media (max-height: 1920px) and (min-height: 826px) {
+  .main-slider {
+    height: auto !important;
+  }
+}
 @media (max-width: 1023px) and (min-width: 768px) {
   .mobileNavBg {
     left: -30px;
     top: -40px;
   }
   .body {
-    margin-top: 70px;
+    margin-top: 50px;
   }
 
   .contactTitle {
@@ -150,7 +234,7 @@
   }
 
   .main-slider {
-    height: auto !important;
+    position: relative;
   }
   .specialize-mobile .specializedTitle {
     font-weight: 900;
@@ -383,7 +467,7 @@
   }
 
   .body {
-    margin-top: 70px;
+    margin-top: 50px;
   }
   .mapTitle {
     display: block !important;
@@ -391,7 +475,6 @@
 
   .sendContact > form > textarea {
     width: 100%;
-    font-size: 20px;
   }
   #map {
     padding: 10px;
@@ -438,7 +521,7 @@
     margin: 0 auto;
   }
   .main-slider {
-    height: auto !important;
+    position: relative;
   }
   .ms-slider-pc {
     display: none;
@@ -630,6 +713,7 @@
   }
   .specialize-mobile {
     margin-bottom: 50px;
+    top: 70px;
   }
 
   .specialize-mobile h2 span {
