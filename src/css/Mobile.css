@@ -1,4 +1,9 @@
 @media (max-width: 1023px) {
+  .latest-work .moreBtn {
+    width: 300px;
+    height: auto;
+    margin-bottom: 50px;
+  }
   .contactBg2 {
     width: 80%;
 
@@ -734,9 +739,7 @@
   .footer .grid span {
     font-size: 16px !important;
   }
-  .latest-work .moreBtn {
-    margin-bottom: 10px !important;
-  }
+
   .latest-work .moreBtn {
     line-height: 0 !important;
   }

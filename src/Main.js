@@ -30,13 +30,15 @@ const Main = (props) => {
       </div>
       <div className="footer footer-pc">
         <div className="grid">
-          <span>Copyright © Artygen Space Company. All rights reserved.</span>
+          <span>
+            Copyright © Artygen Space Company <br /> All rights reserved.
+          </span>
         </div>
       </div>
       <div className="footer footer-mobile">
         <div className="grid">
           <span>
-            Copyright © Artygen Space Company.
+            Copyright © Artygen Space Company
             <br /> All rights reserved.
           </span>
         </div>

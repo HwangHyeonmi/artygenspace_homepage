@@ -50,6 +50,7 @@ function App() {
   const saveLocationVal = (val) => {
     setLocationVal(val);
     if (val === true) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
       setMainVal(false);
     } else {
       setMainVal(true);

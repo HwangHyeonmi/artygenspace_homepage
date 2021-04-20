@@ -29,10 +29,10 @@ export default function ContactUs() {
       } else {
         emailjs
           .sendForm(
-            "service_g2o01eh",
-            "template_lublkb8",
+            "service_jzbrri7",
+            "template_yc09a37",
             e.target,
-            "user_Iak9XQdYZeP7dfMyD6Rao"
+            "user_JmqQlP2VKFWP3yoUSFsPG"
           )
           .then(
             (result) => {
@@ -48,11 +48,11 @@ export default function ContactUs() {
               console.log(error.text);
             }
           );
-      }
-      setSendClickVal(false);
+        setSendClickVal(false);
 
-      document.querySelectorAll(".contactBg2")[0].style.display = "block";
-      document.querySelectorAll(".contactBg2")[1].style.display = "block";
+        document.querySelectorAll(".contactBg2")[0].style.display = "block";
+        document.querySelectorAll(".contactBg2")[1].style.display = "block";
+      }
     }
   }
 
