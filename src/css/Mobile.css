@@ -152,7 +152,6 @@
   }
   .logo {
     right: 0;
-    position: absolute;
   }
   .line {
     fill: none;
@@ -742,5 +741,9 @@
 
   .latest-work .moreBtn {
     line-height: 0 !important;
+  }
+  .dropdown button {
+    position: relative;
+    top: -5px;
   }
 }

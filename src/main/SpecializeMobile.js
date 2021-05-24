@@ -1,8 +1,11 @@
 import React from "react";
 import Slider from "react-slick";
 import { useState } from "react";
+import { setLanguage } from "./Header";
+import { useRecoilValue } from "recoil";
 
 const SpecializeMobile = (props) => {
+  const lan = useRecoilValue(setLanguage);
   const specializedTitleArray = ["AR", "Insight", "Quiz", "Learning", "Play"];
   const specializedContent = [
     `Augmented reality (AR) is an interactive experience that involves overlaying digital content onto the real-world environment. Using augmented reality, we provide an immersive and enjoyable experience with various learning tools like books..
@@ -17,7 +20,7 @@ const SpecializeMobile = (props) => {
   const settings2 = {
     afterChange: function (i) {
       document.querySelector(".specialize-mobile .explain").innerHTML =
-        specializedContent[i];
+        lan.specialize.contents[specializedCurrentIndex];
       setSpecializedCurrentIndex(i);
     },
     speed: 500,
@@ -51,10 +54,7 @@ const SpecializeMobile = (props) => {
       <div>
         <h2>{specializedTitleArray[specializedCurrentIndex]}</h2>
         <p className="explain">
-          Augmented reality (AR) is an interactive experience of a real-world
-          environment. <br />
-          Based on Augmented Reality, We offer immersive and enjoyable
-          experience with a variety of learning tools like books.
+          {lan.specialize.contents[specializedCurrentIndex]}
         </p>
       </div>
     </>

@@ -7,6 +7,7 @@ export const NaverAPIMap = (props) => {
   const navermaps = window.naver.maps;
   return (
     <RenderAfterNavermapsLoaded
+      clientId={NAVER_API_KEY}
       ncpClientId={NAVER_API_KEY} // 자신의 네이버 계정에서 발급받은 Client ID
       error={<p>Maps Load Error</p>}
       loading={<p>Maps Loading...</p>}

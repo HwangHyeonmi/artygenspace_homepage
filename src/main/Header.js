@@ -1,11 +1,41 @@
 import React, { useEffect, useState } from "react";
 import smoothscroll from "smoothscroll-polyfill";
+import { Dropdown } from "react-bootstrap";
+
+import { atom, selector, useRecoilState } from "recoil";
+import { ENGLISH } from "../data/eng.js";
+import { KOREAN } from "../data/kor.js";
+
+let parseEng = JSON.parse(JSON.stringify(ENGLISH));
+let parseKor = JSON.parse(JSON.stringify(KOREAN));
+let lan;
+
+export let LanState = atom({
+  key: "lanState",
+  default: "Eng",
+});
+
+export const setLanguage = selector({
+  key: "setLanState",
+  get: ({ get }) => {
+    let lan = get(LanState);
+    if (lan == "Kor") {
+      lan = parseKor;
+    } else if (lan == "Eng") {
+      lan = parseEng;
+    }
+    return lan;
+  },
+});
+
 const Header = (props) => {
   const [work, setWork] = useState();
   const [about, setAbout] = useState();
   const [workPosition, setWorkPosition] = useState();
   const [aboutPosition, setAboutPosition] = useState();
   const [mainNavVal, setMainNavVal] = useState(true);
+  const [lan, setLan] = useRecoilState(LanState);
+
   const header = props.header;
   const app = props.app;
   useEffect(() => {
@@ -44,7 +74,6 @@ const Header = (props) => {
       if (locationVal) {
         /* header.current.style.backgroundColor = "#fff"; */
       } else {
-        console.log(locationVal);
         if (window.scrollY > 1000) {
           header.current.style.backgroundColor = "#fff";
         } else {
@@ -78,7 +107,7 @@ const Header = (props) => {
       menu.classList.add("opened");
       document.querySelector(".mobileNav").style.display = "block";
 
-      document.querySelector(".logo").style.display = "none";
+      document.querySelector(".headerRightWrap").style.display = "none";
 
       body.style.position = "fixed";
       props.saveHamburgerVal(true);
@@ -88,7 +117,7 @@ const Header = (props) => {
       menu.classList.remove("opened");
       document.querySelector(".mobileNav").style.display = "none";
 
-      document.querySelector(".logo").style.display = "block";
+      document.querySelector(".headerRightWrap").style.display = "block";
 
       body.style.removeProperty("position");
       /*  props.saveLocationVal(true); */
@@ -199,17 +228,42 @@ const Header = (props) => {
           </div>
         </div>
       </div>
+      <div className="headerRightWrap">
+        <Dropdown>
+          <Dropdown.Toggle variant="success" id="dropdown-basic">
+            {lan}
+          </Dropdown.Toggle>
 
-      <div
-        className="logo"
-        onClick={function () {
-          moveToContentPosition("logo");
-          props.saveMainVal(true);
-          setMainNavVal(true);
-          props.saveLocationVal(false);
-        }}
-      >
-        <img alt="logo" src="img/logo_blue.png"></img>
+          <Dropdown.Menu>
+            <Dropdown.Item
+              onClick={function () {
+                setLan("Kor");
+              }}
+              href="#/action-1"
+            >
+              Kor
+            </Dropdown.Item>
+            <Dropdown.Item
+              onClick={function () {
+                setLan("Eng");
+              }}
+              href="#/action-2"
+            >
+              Eng
+            </Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+        <div
+          className="logo"
+          onClick={function () {
+            moveToContentPosition("logo");
+            props.saveMainVal(true);
+            setMainNavVal(true);
+            props.saveLocationVal(false);
+          }}
+        >
+          <img alt="logo" src="img/logo_blue.png"></img>
+        </div>
       </div>
     </div>
   );

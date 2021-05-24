@@ -1,10 +1,11 @@
 import React from "react";
 import Slider from "react-slick";
 import { useEffect, useRef, useState } from "react";
-
+import { useRecoilValue } from "recoil";
+import { setLanguage } from "./Header";
 const LatestWork = (props) => {
   const moreBtn = useRef();
-
+  const lan = useRecoilValue(setLanguage);
   const [moreBtnClickVal, setMoreBtnClickVal] = useState(false);
   const settings = {
     autoplay: true,
@@ -46,10 +47,10 @@ const LatestWork = (props) => {
       <div className="mobile-line"></div>
       <h2>Our impressive work</h2>
       <p>
-        From funded start-ups to large-scale enterprises, <br></br>we proudly
-        partner with ambitious brands and organizations who impact the world
-        around us.
+        {lan.work.contents[0]} <br />
+        {lan.work.contents[1]}
       </p>
+
       <div className="content latest-work-pc">
         <div className="hover01 column latest-work-con">
           <Slider {...settings}>

@@ -7,6 +7,16 @@
   overflow: hidden;
 }
 
+@media (min-width: 1023px) {
+  .header .headerRightWrap {
+    position: absolute;
+    display: block !important;
+    right: 20px;
+    z-index: 100;
+    cursor: pointer;
+  }
+}
+
 /* .locationMobile {
   display: none;
 }
@@ -77,20 +87,29 @@ body {
 }
 .locationMobile .info {
   padding: 40px 0;
+  height: 120px;
 }
 .locationMobile .info .bold {
   font-size: 25px;
   font-weight: 900;
   margin-right: 50px;
   width: 100px;
-  display: inline-block;
+  display: block;
+  float: left;
+
   /*  margin-bottom: 10px; */
 }
+.locationMobile .info span {
+  line-height: 32px;
+}
 .locationMobile .info > div {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  height: 50%;
 }
 .locationMobile .info span:nth-child(2) {
   font-size: 25px;
+  display: block;
+  float: left;
 }
 #videoBg {
   width: 100%;
@@ -109,7 +128,7 @@ body {
 
   background-size: cover;
 }
-#container {
+#container2 {
   position: relative;
   margin: 250px auto;
   width: 80%;
@@ -179,11 +198,11 @@ h1 {
   }
 }
 
-/* container */
-.container {
+/* container2 */
+.container2 {
   height: 100%;
 }
-.container > div {
+.container2 > div {
   width: 100%;
 }
 
@@ -224,11 +243,14 @@ h1 {
   height: 100%;
 }
 
-.header .logo {
+.header .headerRightWrap {
   position: absolute;
   right: 20px;
   z-index: 100;
   cursor: pointer;
+}
+.header .headerRightWrap > div {
+  float: left;
 }
 
 /* main-nav */
@@ -921,4 +943,44 @@ button {
 }
 .contact .cancle img {
   width: 80%;
+}
+
+.dropdown button {
+  width: 60px;
+  height: 40px;
+  margin-right: 20px;
+  color: #000;
+}
+.btn-success {
+  background-color: transparent !important;
+  border-radius: 10px !important;
+  border: none !important;
+}
+.btn-success:hover {
+  color: #000 !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+.btn-success:not(:disabled):not(.disabled).active,
+.btn-success:not(:disabled):not(.disabled):active,
+.show > .btn-success.dropdown-toggle {
+  color: #000 !important;
+  border: none !important;
+  background-color: transparent !important;
+}
+.btn-success.focus,
+.btn-success:focus {
+  color: #000 !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.btn-success:not(:disabled):not(.disabled).active:focus,
+.btn-success:not(:disabled):not(.disabled):active:focus,
+.show > .btn-success.dropdown-toggle:focus {
+  border: none !important;
+  box-shadow: none !important;
+}
+.dropdown-item.active {
+  background-color: #fff !important;
 }

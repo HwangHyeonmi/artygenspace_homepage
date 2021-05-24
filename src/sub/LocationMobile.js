@@ -1,7 +1,9 @@
 import React from "react";
+import { setLanguage } from "../main/Header";
 import NaverAPIMap from "../main/NaverAPIMap";
-
+import { useRecoilValue } from "recoil";
 const LocationMobile = (props) => {
+  const lan = useRecoilValue(setLanguage);
   return (
     <>
       <div className="locationMobile">
@@ -14,9 +16,13 @@ const LocationMobile = (props) => {
           <div>
             <span className="bold">address</span>
             <span>
-              8, Teheran-ro 43-gil, Gangnam-gu, Seoul, Republic of Korea
+              {lan.location.contents[0]}
+
+              <br />
+              {lan.location.contents[1]}
             </span>
           </div>
+          <br />
           <div>
             <span className="bold">e-mail</span>
             <span>contact@artygenspace.com</span>

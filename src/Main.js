@@ -8,7 +8,7 @@ const Main = (props) => {
   const about = useRef();
 
   return (
-    <div className="container" id="grid">
+    <div className="container2" id="grid">
       <div className="body">
         <div className="specialize specialize-pc" ref={about}>
           <Specialize></Specialize>

@@ -3,19 +3,23 @@ import "./css/Tablet.css";
 import "./css/Mobile.css";
 
 import Main from "./Main";
-import { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import MainSlider from "./main/MainSlider";
 import Header from "./main/Header";
 import Contact from "./main/Contact";
 import LocationMobile from "./sub/LocationMobile";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { LanState, setLanguage } from "./main/Header";
+import { useRecoilValue } from "recoil";
 
 function App() {
   const header = useRef();
   const [contactState, setContactState] = useState(false);
   const [mainVal, setMainVal] = useState(true);
   const app = useRef();
-  const appCurrent = app.current;
+  const lan = useRecoilValue(setLanguage);
 
+  useEffect(() => {}, [lan]);
   const saveMainVal = (val) => {
     setMainVal(val);
   };
@@ -50,7 +54,7 @@ function App() {
   const saveLocationVal = (val) => {
     setLocationVal(val);
     if (val === true) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: "instant" });
       setMainVal(false);
     } else {
       setMainVal(true);
@@ -85,7 +89,7 @@ function App() {
         </a>
       </header> */}
 
-      <div className="container" id="grid">
+      <div className="container2" id="grid">
         <div className="headerWrap">
           <div className="header" ref={header}>
             <Header

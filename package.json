@@ -9,15 +9,18 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "bootstrap": "^4.6.0",
     "emailjs-com": "^2.6.4",
     "react": "^17.0.2",
+    "react-bootstrap": "^1.6.0",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
     "react-native-mail": "^6.1.0",
-    "react-naver-maps": "^0.0.13",
-    "react-scripts": "4.0.3",
+    "react-naver-maps": "^0.0.11",
+    "react-scripts": "^2.1.8",
     "react-scrolltop-button": "^0.1.9",
     "react-slick": "^0.28.1",
+    "recoil": "^0.3.1",
     "slick-carousel": "^1.8.1",
     "smoothscroll-polyfill": "^0.4.4",
     "styled-components": "^5.2.1",
@@ -46,5 +49,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "json-loader": "^0.5.7"
   }
 }

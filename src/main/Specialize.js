@@ -1,7 +1,10 @@
 import React from "react";
 import { useEffect, useRef, useState } from "react";
+import { useRecoilValue } from "recoil";
+import { setLanguage } from "./Header";
 
 const Specialize = (props) => {
+  const lan = useRecoilValue(setLanguage);
   const picWrap = useRef();
   const specializedTitleArray = ["AR", "Insight", "Quiz", "Learning", "Play"];
   const specializedContent = [
@@ -55,7 +58,7 @@ const Specialize = (props) => {
     //현재 index가 바뀔 때마다 본문 내용 바뀌게
 
     document.querySelector(".specialize div .explain").innerHTML =
-      specializedContent[specializedCurrentIndex];
+      lan.specialize.contents[specializedCurrentIndex];
   }, [specializedCurrentIndex, specializedContent]);
 
   const specializeBtnClickEvent = (param) => {

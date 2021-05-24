@@ -1,6 +1,8 @@
 import React from "react";
-
+import { setLanguage } from "../main/Header";
+import { useRecoilValue } from "recoil";
 const LocationPC = (props) => {
+  const lan = useRecoilValue(setLanguage);
   return (
     <div className="locationPC">
       <div className="map">
