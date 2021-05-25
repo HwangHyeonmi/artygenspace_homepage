@@ -6,16 +6,7 @@ import { useRecoilValue } from "recoil";
 
 const SpecializeMobile = (props) => {
   const lan = useRecoilValue(setLanguage);
-  const specializedTitleArray = ["AR", "Insight", "Quiz", "Learning", "Play"];
-  const specializedContent = [
-    `Augmented reality (AR) is an interactive experience that involves overlaying digital content onto the real-world environment. Using augmented reality, we provide an immersive and enjoyable experience with various learning tools like books..
-  `,
-    `We value the relationship between things and the environment in which they belong more than the inherent properties of an object.`,
-    `Quizzes are the most effective way to measure one’s learning progress and can greatly help improve concentration.
-    We provide customized quizzes based on artificial intelligence to maximize the learning effect of users.`,
-    `As technology advances, the methods and scope of learning are also changing. We constantly strive to keep up with change and always consider the learning direction that users need.`,
-    `For effective learning, the learner's voluntary motivation must be established. In this sense, immersive and fun play is the most effective tool for maximizing learning effects. We take this into account when creating our services.`,
-  ];
+
   const [specializedCurrentIndex, setSpecializedCurrentIndex] = useState(0);
   const settings2 = {
     afterChange: function (i) {
@@ -52,7 +43,7 @@ const SpecializeMobile = (props) => {
       </div>
 
       <div>
-        <h2>{specializedTitleArray[specializedCurrentIndex]}</h2>
+        <h2>{lan.specialize.subTitles[specializedCurrentIndex]}</h2>
         <p className="explain">
           {lan.specialize.contents[specializedCurrentIndex]}
         </p>
