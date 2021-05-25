@@ -19,6 +19,17 @@ const Specialize = (props) => {
   const [specializedCurrentIndex, setSpecializedCurrentIndex] = useState(0);
   const [clickVal, setClickVal] = useState(true); //슬라이드 좌우버튼 클릭했는지 확인
   let [currentPosition, setCurrentPosition] = useState(0); //현 슬라이더의 위치
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  const handleResize = () => {
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+  };
 
   useEffect(() => {
     //슬라이더 무한 루프를 위한 dom 동적 생성
@@ -30,7 +41,6 @@ const Specialize = (props) => {
     var firstDiv = picDiv[0];
     var cloneLastDiv = LastDiv.cloneNode(true);
     var cloneFirstDiv = firstDiv.cloneNode(true);
-
     /* picWrap 마지막에 복사한 마지막 div를 추가한다 */
     picWrapDiv.appendChild(cloneFirstDiv);
     picWrapDiv.prepend(cloneLastDiv);
@@ -39,12 +49,15 @@ const Specialize = (props) => {
   useEffect(() => {
     //슬라이더의 크기를 동적으로 계산함
     //윈도우 창 크기가 달라질 수 있기 때문
-    //현재 리사이즈 될 때마다 달라지는 거 확인하기 위해 업데이트문 안에 넣어놓음.
-    //리사이즈 될 때 업데이트 되게 바꿔야 함.
+    //리사이즈 될 때마다 실행되는 함수
+    //계속 div 크기 계산해주면서 다시 그려야돼서
 
     const picWrapDiv = picWrap.current;
+    if (picWrapDiv.offsetWidth === 0) {
+      picWrapDiv.style.width = "auto";
+      //모바일 환경에서 사라졌다가 다시 생성되면 width값이 자동으로 0이 돼서 auto로 다시 바꿔줌
+    }
     var picDiv = picWrap.current.getElementsByTagName("div");
-
     picWrapDiv.style.left = "-" + picWrapDiv.parentNode.offsetWidth + "px";
 
     /* picWrapDiv의 초기 위치를 설정한다. */
@@ -52,7 +65,14 @@ const Specialize = (props) => {
     for (let i = 0; i < picDiv.length; i++) {
       picDiv[i].style.width = picWrapDiv.parentNode.offsetWidth + "px";
     }
-  });
+  }, [windowSize]);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     //현재 index가 바뀔 때마다 본문 내용 바뀌게

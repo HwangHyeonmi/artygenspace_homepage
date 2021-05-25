@@ -239,7 +239,7 @@ const Header = (props) => {
               onClick={function () {
                 setLan("Kor");
               }}
-              href="#/action-1"
+              href="#"
             >
               Kor
             </Dropdown.Item>
@@ -247,7 +247,7 @@ const Header = (props) => {
               onClick={function () {
                 setLan("Eng");
               }}
-              href="#/action-2"
+              href="#"
             >
               Eng
             </Dropdown.Item>
