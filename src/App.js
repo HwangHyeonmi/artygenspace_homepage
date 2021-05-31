@@ -4,13 +4,12 @@ import "./css/Mobile.css";
 
 import Main from "./Main";
 import React, { useEffect, useRef, useState } from "react";
-import MainSlider from "./main/MainSlider";
-import Header from "./main/Header";
-import Contact from "./main/Contact";
-import LocationMobile from "./sub/LocationMobile";
+import MainSlider from "./ArtygenPage/header/MainSlider";
+import Contact from "./ArtygenPage/main/Contact";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { LanState, setLanguage } from "./main/Header";
+import Header, { setLanguage } from "./ArtygenPage/header/Header";
 import { useRecoilValue } from "recoil";
+import LocationMobile from "./sub/location/LocationMobile";
 
 function App() {
   const header = useRef();
@@ -18,6 +17,8 @@ function App() {
   const [mainVal, setMainVal] = useState(true);
   const app = useRef();
   const lan = useRecoilValue(setLanguage);
+  const [hamburgerVal, setHamburgerVal] = useState(false);
+  const [locationVal, setLocationVal] = useState(false);
 
   useEffect(() => {}, [lan]);
   const saveMainVal = (val) => {
@@ -33,7 +34,6 @@ function App() {
       disable();
     }
   };
-  const [hamburgerVal, setHamburgerVal] = useState(false);
 
   const saveHamburgerVal = (val) => {
     setHamburgerVal(val);
@@ -48,8 +48,6 @@ function App() {
       disable();
     }
   };
-
-  const [locationVal, setLocationVal] = useState(false);
 
   const saveLocationVal = (val) => {
     setLocationVal(val);
@@ -76,19 +74,6 @@ function App() {
 
   return (
     <div className="App" ref={app}>
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>작업중입니다.^^</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          ★Artygen Space★
-        </a>
-      </header> */}
-
       <div className="container2" id="grid">
         <div className="headerWrap">
           <div className="header" ref={header}>

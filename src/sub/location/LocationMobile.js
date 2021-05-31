@@ -1,7 +1,8 @@
 import React from "react";
-import { setLanguage } from "../main/Header";
-import NaverAPIMap from "../main/NaverAPIMap";
+
 import { useRecoilValue } from "recoil";
+import { setLanguage } from "../../ArtygenPage/header/Header";
+import NaverAPIMap from "../../ArtygenPage/main/libarary/NaverAPIMap";
 const LocationMobile = (props) => {
   const lan = useRecoilValue(setLanguage);
   return (
@@ -27,18 +28,8 @@ const LocationMobile = (props) => {
             <span className="bold">e-mail</span>
             <span>contact@artygenspace.com</span>
           </div>
-          {/*  <div>
-            <span className="bold">phone</span>
-            <span>000-0000-0000</span>
-          </div> */}
         </div>
       </div>
-      {/*  <div className="locationPC">
-        <div className="map">
-          <h2>Location</h2>
-          <NaverAPIMap></NaverAPIMap>
-        </div>
-      </div> */}
     </>
   );
 };

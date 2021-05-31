@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
 import smoothscroll from "smoothscroll-polyfill";
 import { Dropdown } from "react-bootstrap";
-
 import { atom, selector, useRecoilState } from "recoil";
-import { ENGLISH } from "../data/eng.js";
-import { KOREAN } from "../data/kor.js";
+import { ENGLISH } from "../../data/eng.js";
+import { KOREAN } from "../../data/kor.js";
 
 let parseEng = JSON.parse(JSON.stringify(ENGLISH));
 let parseKor = JSON.parse(JSON.stringify(KOREAN));
-let lan;
 
 export let LanState = atom({
   key: "lanState",
@@ -19,9 +17,9 @@ export const setLanguage = selector({
   key: "setLanState",
   get: ({ get }) => {
     let lan = get(LanState);
-    if (lan == "Kor") {
+    if (lan === "Kor") {
       lan = parseKor;
-    } else if (lan == "Eng") {
+    } else if (lan === "Eng") {
       lan = parseEng;
     }
     return lan;
@@ -35,9 +33,10 @@ const Header = (props) => {
   const [aboutPosition, setAboutPosition] = useState();
   const [mainNavVal, setMainNavVal] = useState(true);
   const [lan, setLan] = useRecoilState(LanState);
-
+  const [hamburgerVal, setHamburgerVal] = useState(false);
   const header = props.header;
-  const app = props.app;
+  const locationVal = props.locationVal;
+
   useEffect(() => {
     setWork(document.querySelector(".latest-work"));
     setAbout(document.querySelector(".specialize-pc"));
@@ -52,27 +51,28 @@ const Header = (props) => {
         100
     );
   }, []);
-  const locationVal = props.locationVal;
+
   useEffect(() => {
     smoothscroll.polyfill();
     window.addEventListener("scroll", scrollEvent, true);
   }, [locationVal]);
 
+  useEffect(() => {
+    hamburgerClick();
+  }, [hamburgerVal]);
+
   const scrollEvent = () => {
     if (window.innerWidth < 767) {
       if (locationVal) {
-        /*   header.current.style.backgroundColor = "#fff"; */
       } else {
         if (window.scrollY > 720) {
           header.current.style.backgroundColor = "#fff";
-          /* header.current.style.boxShadow = " 5px 3px 5px 5px #ccc"; */
         } else {
           header.current.style.backgroundColor = "transparent";
         }
       }
     } else {
       if (locationVal) {
-        /* header.current.style.backgroundColor = "#fff"; */
       } else {
         if (window.scrollY > 1000) {
           header.current.style.backgroundColor = "#fff";
@@ -95,41 +95,25 @@ const Header = (props) => {
     }
   };
 
-  const [hamburgerVal, setHamburgerVal] = useState(false);
-
   const hamburgerClick = () => {
     document.querySelector("body").scrollTo({ top: 0, behavior: "smooth" });
     const body = document.querySelector("body");
     const menu = document.querySelector(".menu");
 
-    /*   document.querySelector(".menu").setAttribute("aria-expanded"); */
     if (hamburgerVal === true) {
       menu.classList.add("opened");
       document.querySelector(".mobileNav").style.display = "block";
-
       document.querySelector(".headerRightWrap").style.display = "none";
-
       body.style.position = "fixed";
       props.saveHamburgerVal(true);
-
       props.saveLocationVal(false);
     } else {
       menu.classList.remove("opened");
       document.querySelector(".mobileNav").style.display = "none";
-
       document.querySelector(".headerRightWrap").style.display = "block";
-
       body.style.removeProperty("position");
-      /*  props.saveLocationVal(true); */
     }
   };
-  /*  useEffect(() => {
-    const menu = document.querySelector(".menu");
-    menu.classList.add("opened");
-  }, []); */
-  useEffect(() => {
-    hamburgerClick();
-  }, [hamburgerVal]);
 
   return (
     <div className="navWrap">
@@ -137,7 +121,6 @@ const Header = (props) => {
         <div className="mainNav pcNav">
           <div
             onClick={function () {
-              console.log(work);
               if (work) {
                 moveToContentPosition(work, workPosition);
               }
@@ -195,20 +178,6 @@ const Header = (props) => {
       <div className="mobileNav">
         <div className="mobileNavBg">
           <div className="textWrap">
-            {/* <div
-              onClick={function () {
-                alert("Coming Soon!");
-              }}
-            >
-              WORK
-            </div>
-            <div
-              onClick={function () {
-                alert("Coming Soon!");
-              }}
-            >
-              ABOUT
-            </div> */}
             <div
               onClick={function () {
                 props.saveContactVal(true);

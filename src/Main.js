@@ -1,8 +1,9 @@
 import React, { useRef } from "react";
-import Specialize from "./main/Specialize";
-import SpecializeMobile from "./main/SpecializeMobile";
-import LatestWork from "./main/LatestWork";
-import NaverAPIMap from "./main/NaverAPIMap";
+import NaverAPIMap from "./ArtygenPage/main/libarary/NaverAPIMap";
+import LatestWork from "./ArtygenPage/main/LatestWork";
+import SpecializeMobile from "./ArtygenPage/main/SpecializeMobile";
+import Specialize from "./ArtygenPage/main/Specialize";
+
 const Main = (props) => {
   const work = useRef();
   const about = useRef();

@@ -8,7 +8,7 @@ export const NaverAPIMap = (props) => {
   return (
     <RenderAfterNavermapsLoaded
       clientId={NAVER_API_KEY}
-      ncpClientId={NAVER_API_KEY} // 자신의 네이버 계정에서 발급받은 Client ID
+      ncpClientId={NAVER_API_KEY} //  네이버 계정에서 발급받은 Client ID
       error={<p>Maps Load Error</p>}
       loading={<p>Maps Loading...</p>}
     >
@@ -32,9 +32,7 @@ export const NaverAPIMap = (props) => {
           key={1}
           position={new navermaps.LatLng(37.50375002259543, 127.04431355594738)}
           animation={2}
-          onClick={() => {
-            /* alert("여기는 N서울타워입니다."); */
-          }}
+          onClick={() => {}}
         />
       </NaverMap>
     </RenderAfterNavermapsLoaded>

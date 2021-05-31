@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useRef, useState } from "react";
 import { useRecoilValue } from "recoil";
-import { setLanguage } from "./Header";
+import { setLanguage } from "../header/Header";
 
 const Specialize = (props) => {
   const lan = useRecoilValue(setLanguage);
@@ -70,7 +70,7 @@ const Specialize = (props) => {
 
     document.querySelector(".specialize div .explain").innerHTML =
       lan.specialize.contents[specializedCurrentIndex];
-  }, [specializedCurrentIndex]);
+  }, [specializedCurrentIndex, lan]);
 
   const specializeBtnClickEvent = (param) => {
     //좌우 버튼 클릭했을 때 실행될 함수

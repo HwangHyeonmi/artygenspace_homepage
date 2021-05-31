@@ -1,12 +1,12 @@
 import React from "react";
 import Slider from "react-slick";
 import { useState } from "react";
-import { setLanguage } from "./Header";
+
 import { useRecoilValue } from "recoil";
+import { setLanguage } from "../header/Header";
 
 const SpecializeMobile = (props) => {
   const lan = useRecoilValue(setLanguage);
-
   const [specializedCurrentIndex, setSpecializedCurrentIndex] = useState(0);
   const settings2 = {
     afterChange: function (i) {

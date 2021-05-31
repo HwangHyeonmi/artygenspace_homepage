@@ -2,7 +2,8 @@ import React from "react";
 import Slider from "react-slick";
 import { useEffect, useRef, useState } from "react";
 import { useRecoilValue } from "recoil";
-import { setLanguage } from "./Header";
+import { setLanguage } from "../header/Header";
+
 const LatestWork = (props) => {
   const moreBtn = useRef();
   const lan = useRecoilValue(setLanguage);

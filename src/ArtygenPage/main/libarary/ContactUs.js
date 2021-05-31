@@ -6,6 +6,7 @@ export default function ContactUs() {
   const userMail = useRef();
   const textArea = useRef();
   const [sendClickVal, setSendClickVal] = useState(true);
+
   function sendEmail(e) {
     e.preventDefault();
     if (sendClickVal === true) {
