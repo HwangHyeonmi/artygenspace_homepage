@@ -32,7 +32,10 @@ export const NaverAPIMap = (props) => {
           key={1}
           position={new navermaps.LatLng(37.50375002259543, 127.04431355594738)}
           animation={2}
-          onClick={() => {}}
+          onClick={() => {
+           // alert('여기는 네이버 입니다.')
+          }}
+          title={"artygenspace"}
         />
       </NaverMap>
     </RenderAfterNavermapsLoaded>
