@@ -88,13 +88,13 @@ const Header = ({
   //네비버튼에 스크롤 이벤트 추가
 
   const moveToContentPosition = (where) => {
-    if (where == "logo") {
+    if (where === "logo") {
       window.scrollTo({ top: 0, behavior: "smooth" });
-    } else if (where == "work") {
+    } else if (where === "work") {
       window.scrollTo({ top: workPosition, behavior: "smooth" });
-    } else if (where == "specialize") {
+    } else if (where === "specialize") {
       window.scrollTo({ top: specializePosition, behavior: "smooth" });
-    } else if (where == "footer") {
+    } else if (where === "footer") {
       window.scrollTo({ top: contactPosition, behavior: "smooth" });
     }
   };
@@ -157,19 +157,19 @@ const Header = ({
                     //moveToContentPosition("logo");
                   }}
                 >
-                  <a
+                  <span
                     className="logoArea"
                     style={{
                       cursor: "pointer",
                     }}
                   >
                     <img alt="logo" src={"../img/logo_blue.png"}></img>
-                  </a>
+                  </span>
                 </Link>
               )}
 
               {mode === "home" && (
-                <a
+                <span
                   className="logoArea"
                   style={{
                     cursor: "pointer",
@@ -179,7 +179,7 @@ const Header = ({
                   }}
                 >
                   <img alt="logo" src="img/logo_blue.png"></img>
-                </a>
+                </span>
               )}
             </Grid>
           </Grid>
@@ -197,7 +197,7 @@ const Header = ({
                   //moveToContentPosition("logo");
                 }}
               >
-                <a
+                <span
                   className="logoArea"
                   style={{
                     cursor: "pointer",
@@ -208,11 +208,11 @@ const Header = ({
                     alt="logo"
                     src="../img/logo_blue.png"
                   ></img>
-                </a>
+                </span>
               </Link>
             )}
             {mode === "home" && (
-              <a
+              <span
                 className="logoArea"
                 style={{
                   cursor: "pointer",
@@ -226,7 +226,7 @@ const Header = ({
                   src="img/logo_blue.png"
                   style={{ width: "100px" }}
                 ></img>
-              </a>
+              </span>
             )}
           </Grid>
         </Grid>

@@ -58,11 +58,11 @@ export default function Main() {
   //언어 세팅
 
   const getPosition = (where, position) => {
-    if (where == "specialize") {
+    if (where === "specialize") {
       setSpecializePosition(position);
-    } else if (where == "work") {
+    } else if (where === "work") {
       setWorkPosition(position);
-    } else if (where == "footer") {
+    } else if (where === "footer") {
       setContactPosition(position);
     }
   };

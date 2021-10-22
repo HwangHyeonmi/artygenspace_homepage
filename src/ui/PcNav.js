@@ -27,14 +27,14 @@ const PcNav = ({ moveToContentPosition, getContactVal }) => {
           moveToContentPosition("work");
         }}
       >
-        <a
+        <span
           className={classes.aTag}
           style={{
             cursor: "pointer",
           }}
         >
           Work
-        </a>
+        </span>
       </Grid>
 
       <Grid
@@ -45,14 +45,14 @@ const PcNav = ({ moveToContentPosition, getContactVal }) => {
           moveToContentPosition("specialize");
         }}
       >
-        <a
+        <span
           className={classes.aTag}
           style={{
             cursor: "pointer",
           }}
         >
           About
-        </a>
+        </span>
       </Grid>
 
       <Grid
@@ -64,14 +64,14 @@ const PcNav = ({ moveToContentPosition, getContactVal }) => {
           getContactVal(true);
         }}
       >
-        <a
+        <span
           className={classes.aTag}
           style={{
             cursor: "pointer",
           }}
         >
           Contact
-        </a>
+        </span>
       </Grid>
 
       <Grid className={`${classes.navGrid} navText`} item xs={3}>

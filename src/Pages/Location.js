@@ -1,12 +1,10 @@
 import {
     Box,
     Container,
-    Grid,
     makeStyles,
-    Typography,
   } from "@material-ui/core";
-  import React, { useEffect, useState } from "react";
-  import { RecoilRoot, useRecoilValue } from "recoil";
+  import React, { useState } from "react";
+  import {useRecoilValue } from "recoil";
   import Header, { setLanguage } from "../components/Header";
   import Contact from "../etc/Contact";
   import NaverAPIMap from "../etc/NaverAPIMap";
