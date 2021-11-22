@@ -16,7 +16,7 @@ let parseKor = JSON.parse(JSON.stringify(KOREAN));
 
 export let LanState = atom({
   key: "lanState",
-  default: "Eng",
+  default: "Kor",
 });
 
 export const setLanguage = selector({
