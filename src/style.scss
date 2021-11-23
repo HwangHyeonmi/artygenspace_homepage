@@ -1,24 +1,12 @@
 $browser-font-size: 16;
-
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 @function em($pixels, $context: $browser-font-size) {
   @return #{$pixels/$context}em;
 }
 
-/* body {
-  -ms-overflow-style: none;
-}
-::-webkit-scrollbar {
-  display: none;
-} 
-.box {
-  -ms-overflow-style: none;
-}
-.box::-webkit-scrollbar {
-  display: none;
-} */
 
 * {
-  font-family: "NanumSquare", serif !important;
+  font-family:'Nanum Gothic', sans-serif !important;
 }
 .smallTitle {
   font-weight: 900 !important;
