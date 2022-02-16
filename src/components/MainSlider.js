@@ -29,7 +29,7 @@ const MainSlider = ({ getSliderHeight }) => {
           playsInline
           id="videoBg"
         >
-          <source src="media/mainSliderMovie.mp4" type="video/mp4"></source>
+          <source src="media/mainSliderMovieNew.mp4" type="video/mp4"></source>
         </video>
       </Box>
       <Box className="mSlider-mobile">
@@ -45,7 +45,7 @@ const MainSlider = ({ getSliderHeight }) => {
           id="videoBg"
         >
           <source
-            src="media/mainSliderMovieMobile.mp4"
+            src="media/mainSliderMovieNew.mp4"
             type="video/mp4"
           ></source>
         </video>

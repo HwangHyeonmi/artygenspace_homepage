@@ -122,7 +122,7 @@ const Header = ({
       }}
     >
       <Box my={2} color="text.primary" className={`${classes.box} headerWrap`}>
-        <Grid container justify="space-between">
+        <Grid container justifyContent="space-between">
           <Grid container item xs={3} className="pcNav">
             {headerVisible && (
               <PcNav

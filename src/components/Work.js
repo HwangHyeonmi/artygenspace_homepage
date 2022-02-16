@@ -53,7 +53,7 @@ const Work = ({ getPosition, screenMode }) => {
       color="text.primary"
       className={`${classes.specialize} workWrap`}
     >
-      <Grid container spacing={10} justify="space-between">
+      <Grid container spacing={10} justifyContent="space-between">
         <Grid container item xs={12} className={classes.textWrap}>
           <Grid item xs={12}>
             <Typography className="subTitle" variant="h1" component="h2">

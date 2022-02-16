@@ -65,7 +65,7 @@ const SpecializeSlider = ({ lan, screenMode }) => {
         className="specializePC"
         container
         spacing={10}
-        justify="space-between"
+        justifyContent="space-between"
       >
         <Grid container item xs={6} className={classes.textWrap}>
           <Grid item xs={12}>
@@ -160,7 +160,7 @@ const SpecializeSlider = ({ lan, screenMode }) => {
         className="specializeMobile"
         container
         spacing={10}
-        justify="space-between"
+        justifyContent="space-between"
       >
         <Grid item xs={12}>
           <Typography variant="h5" component="h2">
