@@ -102,8 +102,6 @@ const Header = ({
   useEffect(() => {
     smoothscroll.polyfill();
     window.addEventListener("scroll", navbarControl);
-    console.log("scroll");
-
     return () => {
       window.removeEventListener("scroll", navbarControl);
     };

@@ -173,7 +173,6 @@ const SpecializeSlider = ({ lan, screenMode }) => {
             grabCursor={true}
             pagination={true}
             loop={true}
-            /*  navigation={true} */
             onSlideChange={(swiper) => {
               setCurrentIndex(swiper.realIndex); 
             }}
