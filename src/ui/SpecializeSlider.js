@@ -51,14 +51,12 @@ const SpecializeSlider = ({ lan, screenMode }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const classes = useStyles();
-  const [slideInit, setSlideInit] = useState(false);
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  useEffect(() => {
-    console.log(currentIndex);
-  }, [currentIndex]);
-
+  useEffect(()=>{
+    setCurrentIndex(0)
+  },[])
   return (
     <>
       <Grid
@@ -124,12 +122,12 @@ const SpecializeSlider = ({ lan, screenMode }) => {
                 swiper.params.navigation.nextEl = nextRef.current;
                 swiper.navigation.init();
                 swiper.navigation.update();
+              
               }}
               onSlideChange={(swiper) => {
-                if (slideInit) {
-                  setCurrentIndex(swiper.realIndex);
-                }
-                setSlideInit(true);
+
+                setCurrentIndex(swiper.realIndex);
+               
               }}
             >
               <SwiperSlide>
@@ -177,10 +175,7 @@ const SpecializeSlider = ({ lan, screenMode }) => {
             loop={true}
             /*  navigation={true} */
             onSlideChange={(swiper) => {
-              if (slideInit) {
-                setCurrentIndex(swiper.realIndex);
-              }
-              setSlideInit(true);
+              setCurrentIndex(swiper.realIndex); 
             }}
           >
             <SwiperSlide>

@@ -13,7 +13,6 @@
     "bootstrap": "^4.6.0",
     "emailjs-com": "^2.6.4",
     "google-map-react": "^2.1.10",
-    "node-sass": "^4.14.1",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.0",
     "react-dom": "^17.0.2",
@@ -25,7 +24,6 @@
     "react-scrolltop-button": "^0.1.9",
     "react-slick": "^0.28.1",
     "recoil": "^0.3.1",
-    "sass": "^1.38.2",
     "slick-carousel": "^1.8.1",
     "smoothscroll-polyfill": "^0.4.4",
     "styled-components": "^5.2.1",
@@ -57,6 +55,7 @@
     ]
   },
   "devDependencies": {
-    "json-loader": "^0.5.7"
+    "json-loader": "^0.5.7",
+    "sass": "^1.49.8"
   }
 }

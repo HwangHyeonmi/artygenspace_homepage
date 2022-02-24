@@ -1,12 +1,11 @@
-$browser-font-size: 16;
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
-@function em($pixels, $context: $browser-font-size) {
-  @return #{$pixels/$context}em;
-}
 
 
 * {
   font-family:'Nanum Gothic', sans-serif !important;
+  
+}
+html{
+  font-size:16px;
 }
 .smallTitle {
   font-weight: 900 !important;
@@ -80,17 +79,17 @@ body {
 }
 
 .footer {
-  font-size: em(24);
+  font-size:24px;
 }
 .subTitle {
-  font-size: em(45) !important;
+  font-size:45px !important;
   margin-bottom: 30px !important;
   font-weight: 900 !important;
   font-family: "Lora", serif !important;
   letter-spacing: 100px;
 }
 .buttonWrap {
-  font-size: em(20) !important;
+  font-size: 20px !important;
 }
 .swiper-button-prev {
   left: 0 !important;
@@ -111,13 +110,13 @@ body {
   height: 100%;
 }
 .contactWrap h2 {
-  font-size: em(40);
+  font-size: 40px;
   margin-bottom: 4%;
   display: inline-block;
 }
 
 .contactWrap .text {
-  font-size: em(20);
+  font-size: 20px;
   line-height: 100%;
   margin-bottom: 3%;
 }
@@ -168,7 +167,7 @@ body {
 
   border: 1px solid #ccc;
   margin-bottom: 3%;
-  font-size: em(20);
+  font-size: 20px;
   padding: 0 20px;
   box-sizing: border-box;
 }
@@ -177,7 +176,7 @@ body {
   height: 45%;
   margin-bottom: 3%;
   border: 1px solid #ccc;
-  font-size: em(20);
+  font-size: 20px;
   padding: 20px;
   box-sizing: border-box;
 }
@@ -306,7 +305,7 @@ body {
   height: 500px;
 }
 .address {
-  font-size: em(30);
+  font-size: 30px;
   width: 100%;
   height: 80px;
 }
@@ -588,10 +587,14 @@ body {
   }
 }
 @media (max-width: 767px) {
+  html{
+    font-size: 13px;
+  }
   .mSlider-pc {
     display: none !important;
   }
   .mSlider-mobile {
+  
     display: block !important;
   }
 }
